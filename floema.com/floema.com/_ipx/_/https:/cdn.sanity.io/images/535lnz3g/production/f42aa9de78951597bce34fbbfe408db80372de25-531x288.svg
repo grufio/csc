@@ -1,0 +1,55 @@
+<svg viewBox="0 0 531.26 288" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-width: .3px;
+      }
+
+      .cls-1, .cls-2, .cls-4 {
+        stroke: #12100b;
+      }
+
+      .cls-1, .cls-2, .cls-5 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3, .cls-5 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2, .cls-4 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-6 {
+        fill: #12100b;
+      }
+
+      .cls-3 {
+        fill: #f1efea;
+      }
+
+      .cls-3, .cls-5 {
+        stroke: #000;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-7 {
+        letter-spacing: 0em;
+      }
+
+      .cls-7, .cls-8 {
+        font-family: ZimulaVariable-Medium, &apos;Zimula Variable&apos;;
+        font-size: 7px;
+        font-variation-settings: &apos;wght&apos; 500, &apos;cnct&apos; 500;
+        font-weight: 500;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5 {
+        stroke-width: .28px;
+      }</style></defs><g id="bases"><rect height="358.35" width="589.11" y="-33.95" x="-25.44" class="cls-5"/></g><g id="Golf"><g id="Driving_Range"><g id="cavalete_informativo"><g id="LINE"><g><line y2="284.22" x2="18.06" y1="86.53" x1="18.06" class="cls-2"/><rect height=".3" width="1.95" y="86.38" x="17.09" class="cls-6"/><rect height=".3" width="1.95" y="284.07" x="17.09" class="cls-6"/></g></g><g id="MTEXT"><text transform="translate(14.14 199.24) rotate(-90)" class="cls-7"><tspan y="0" x="0">460 mm</tspan></text></g><g id="LINE-2"><g><line y2="284.94" x2="354.43" y1="142.77" x1="354.43" class="cls-2"/><rect height=".3" width="1.95" y="142.62" x="353.46" class="cls-6"/><rect height=".3" width="1.95" y="284.79" x="353.46" class="cls-6"/></g></g><g id="MTEXT-2"><text transform="translate(350.51 227.39) rotate(-90)" class="cls-8"><tspan y="0" x="0">330 mm</tspan></text></g><g id="LINE-3"><g><line y2="121.05" x2="377.33" y1="121.05" x1="506.15" class="cls-1"/><rect height="1.95" width=".3" y="120.08" x="506" class="cls-6"/><rect height="1.95" width=".3" y="120.08" x="377.18" class="cls-6"/></g></g><g id="MTEXT-3"><text transform="translate(427.88 117.13)" class="cls-8"><tspan y="0" x="0">300 mm</tspan></text></g><polygon points="203.56 284.37 181.84 284.37 233.07 94.69 253.1 100.39 203.56 284.37" class="cls-3"/><g><line y2="87.32" x2="233.4" y1="258.17" x1="187.14" class="cls-4"/><polygon points="188.81 258.62 185.49 257.72 231.75 86.87 235.07 87.77 188.81 258.62" class="cls-3"/></g><polygon points="303.16 284.37 324.88 284.37 273.66 94.69 253.62 100.39 303.16 284.37" class="cls-3"/><g><line y2="87.32" x2="273.32" y1="258.17" x1="319.58" class="cls-4"/><polygon points="317.91 258.62 321.24 257.72 274.97 86.87 271.65 87.77 317.91 258.62" class="cls-3"/></g><rect height="197.97" width="34.43" y="86.41" x="38.28" class="cls-3"/><rect height="197.97" width="34.43" y="86.38" x="118.51" class="cls-3"/><rect ry="5.49" rx="5.49" height="172.14" width="129.12" y="86.43" x="31.05" class="cls-3"/><rect height="71.04" width="34.43" y="142.54" x="384.4" class="cls-3"/><rect height="71.04" width="34.43" y="142.53" x="464.62" class="cls-3"/><rect transform="translate(883.48 345.5) rotate(180)" ry="2.83" rx="2.83" height="45.92" width="129.12" y="149.79" x="377.18" class="cls-3"/><line y2="189.26" x2="229.18" y1="189.26" x1="277.6" class="cls-4"/><rect transform="translate(883.48 339.81) rotate(180)" ry="2.83" rx="2.83" height="45.92" width="129.12" y="146.94" x="377.18" class="cls-3"/><rect transform="translate(963.73 498.28) rotate(180)" height="71.04" width="34.43" y="213.62" x="464.65" class="cls-3"/><rect transform="translate(803.28 498.3) rotate(180)" height="71.04" width="34.43" y="213.63" x="384.42" class="cls-3"/><rect ry="2.83" rx="2.83" height="45.92" width="129.12" y="231.49" x="377.18" class="cls-3"/><rect ry="2.83" rx="2.83" height="45.92" width="129.12" y="234.34" x="377.18" class="cls-3"/></g></g></g></svg>

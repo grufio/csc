@@ -1,0 +1,33 @@
+<svg viewBox="0 0 531.26 288" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1 {
+        stroke: #12100b;
+        stroke-width: .3px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: #12100b;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4, .cls-5 {
+        font-family: ZimulaVariable-Medium, &apos;Zimula Variable&apos;;
+        font-size: 7px;
+        font-variation-settings: &apos;wght&apos; 500, &apos;cnct&apos; 500;
+        font-weight: 500;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        stroke: #000;
+        stroke-width: .28px;
+      }</style></defs><g id="bases"><rect height="358.35" width="589.11" y="-33.95" x="-25.44" class="cls-2"/></g><g id="Golf"><g id="Club_House"><g id="totem_direcional_Royal"><path d="M44.36,29.64c-.73,0-1.32.98-1.32,2.19v251.34c0,1.21.59,2.19,1.32,2.19h43.63c.73,0,1.32-.98,1.32-2.19V31.83c0-1.21-.59-2.19-1.32-2.19h-43.63" class="cls-1"/><g id="LINE"><path d="M92.61,285.52V24.35s-.02-.02-.02-.02l-3.09-2.96-.19-.19h-45.99c-.18,0-.34.07-.47.19l-3.09,2.96-.02.02v261.17h52.87Z" class="cls-1"/></g><g id="LINE-2"><line y2="24.35" x2="39.76" y1="24.35" x1="92.59" class="cls-1"/></g><g id="LINE-3"><line y2="24.35" x2="122.51" y1="24.35" x1="162.13" class="cls-1"/></g><g id="LINE-4"><path d="M162.16,284.25c0,.84,0,1.27,0,1.27h-39.65V24.35l.03-.02,3.47-2.96c.14-.12.33-.19.53-.19h31.6c.2,0,.39.07.53.19l3.47,2.96.03.02s0,240.28,0,259.9Z" class="cls-1"/></g><g><line y2="285.37" x2="18" y1="21.33" x1="18" class="cls-1"/><rect height=".3" width="1.95" y="21.18" x="17.03" class="cls-3"/><rect height=".3" width="1.95" y="285.22" x="17.03" class="cls-3"/></g><text transform="translate(14.08 167.27) rotate(-90)" class="cls-4"><tspan y="0" x="0">800 mm</tspan></text><g><line y2="285.12" x2="191.34" y1="245.77" x1="191.34" class="cls-1"/><rect height=".3" width="1.95" y="245.62" x="190.36" class="cls-3"/><rect height=".3" width="1.95" y="284.97" x="190.36" class="cls-3"/></g><text transform="translate(187.41 278.43) rotate(-90)" class="cls-5"><tspan y="0" x="0">120 mm</tspan></text><g><line y2="238.69" x2="259.22" y1="238.69" x1="206.65" class="cls-1"/><rect height="1.95" width=".3" y="237.71" x="206.5" class="cls-3"/><rect height="1.95" width=".3" y="237.71" x="259.07" class="cls-3"/></g><text transform="translate(219.84 234.76)" class="cls-5"><tspan y="0" x="0">160 mm</tspan></text><g id="LINE-5"><polyline points="255.79 281.25 210.08 281.25 210.08 249.65 255.79 249.65 255.79 281.25" class="cls-1"/></g><g id="LINE-6"><line y2="245.86" x2="206.67" y1="249.65" x1="210.08" class="cls-1"/></g><g id="LINE-7"><line y2="249.65" x2="255.79" y1="245.83" x1="259.16" class="cls-1"/></g><g id="LINE-8"><line y2="281.25" x2="255.79" y1="285.03" x1="259.19" class="cls-1"/></g><g id="LINE-9"><line y2="285.03" x2="206.67" y1="281.25" x1="210.08" class="cls-1"/></g><g id="ARC"><path d="M259.36,246.27s0-.06-.02-.1c-.06-.26-.24-.46-.47-.53-.06-.02-.11-.03-.17-.03h-51.55c-.31,0-.56.23-.64.55-.01.06-.02.13-.02.19v38.17c0,.41.29.74.66.74h51.55c.06,0,.12,0,.17-.03.23-.07.41-.27.47-.53.01-.06.02-.13.02-.19v-38.16s0-.06,0-.1Z" class="cls-1"/></g></g></g></g></svg>

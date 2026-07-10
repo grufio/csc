@@ -1,0 +1,41 @@
+<svg viewBox="0 0 531.26 288" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1 {
+        stroke: #12100b;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: .3px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #000;
+      }
+
+      .cls-4 {
+        fill: #12100b;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5, .cls-6 {
+        font-family: ZimulaVariable-Medium, &apos;Zimula Variable&apos;;
+        font-size: 7px;
+        font-variation-settings: &apos;wght&apos; 500, &apos;cnct&apos; 500;
+        font-weight: 500;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        stroke-miterlimit: 10;
+        stroke-width: .28px;
+      }</style></defs><g id="bases"><rect height="358.35" width="589.11" y="-33.95" x="-25.44" class="cls-3"/></g><g id="Golf"><g id="Campo_de_Golf"><g id="baliza_PAR_3"><g id="LINE"><g><line y2="258.13" x2="15.99" y1="22.06" x1="15.99" class="cls-1"/><rect height=".3" width="1.95" y="21.91" x="15.01" class="cls-4"/><rect height=".3" width="1.95" y="257.98" x="15.01" class="cls-4"/></g></g><text transform="translate(14.06 154.01) rotate(-90)" class="cls-5"><tspan y="0" x="0">800 mm</tspan></text><polygon points="179.22 62.07 146.98 24.1 146.98 258.22 179.22 258.22 179.22 62.07" class="cls-1"/><path d="M31.98,21.91h45.77c.41,0,.75.34.75.75v235.62H31.23V22.66c0-.41.34-.75.75-.75Z" class="cls-1"/><rect ry=".78" rx=".78" height="38.41" width="47.27" y="21.9" x="31.23" class="cls-1"/><g id="LINE-2"><g><line y2="284.79" x2="231.39" y1="249.63" x1="231.39" class="cls-1"/><rect height=".3" width="1.95" y="249.48" x="230.41" class="cls-4"/><rect height=".3" width="1.95" y="284.64" x="230.41" class="cls-4"/></g></g><text transform="translate(227.46 280.19) rotate(-90)" class="cls-6"><tspan y="0" x="0">120 mm</tspan></text><g id="LINE-3"><g><line y2="228.64" x2="253" y1="228.64" x1="299.98" class="cls-1"/><rect height="1.95" width=".3" y="227.66" x="299.83" class="cls-4"/><rect height="1.95" width=".3" y="227.66" x="252.85" class="cls-4"/></g></g><text transform="translate(263.4 224.71)" class="cls-6"><tspan y="0" x="0">160 mm</tspan></text><rect ry=".24" rx=".24" height="35.46" width="47.27" y="249.48" x="253.06" class="cls-1"/><polygon points="180.44 63.62 146.1 22.96 147.21 21.84 181.55 62.5 180.44 63.62" class="cls-2"/><path d="M41.04,258.28v25.57c-.18.21-.89,1.04-.89,1.04,0,0-.65-.75-.89-1.04v-25.57h1.77" class="cls-1"/><path d="M72.4,258.28v25.57c-.18.21-.89,1.04-.89,1.04,0,0-.65-.75-.89-1.04v-25.57h1.77" class="cls-1"/><path d="M164.88,258.28v25.57c-.18.21-.89,1.04-.89,1.04,0,0-.65-.75-.89-1.04v-25.57h1.77" class="cls-1"/></g></g></g></svg>

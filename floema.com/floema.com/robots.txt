@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /en/
+Allow: /es/
+Allow: /fr/
+Disallow: 
+
+Sitemap: https://floema.com/sitemap_index.xml

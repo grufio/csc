@@ -1,0 +1,28 @@
+<svg viewBox="0 0 531.26 288" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1 {
+        fill: #12100c;
+      }
+
+      .cls-2 {
+        stroke: #12100c;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: .3px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        font-family: ZimulaVariable-Medium, &apos;Zimula Variable&apos;;
+        font-size: 7px;
+        font-variation-settings: &apos;wght&apos; 500, &apos;cnct&apos; 500;
+        font-weight: 500;
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: .28px;
+      }</style></defs><g id="bases"><rect height="358.35" width="589.11" y="-33.95" x="-25.44" class="cls-3"/></g><g id="Golf"><g id="Campo_de_Golf"><g id="marcador_de_distância"><g id="LINE"><g><line y2="22.1" x2="16.58" y1="284.86" x1="16.58" class="cls-2"/><rect height=".3" width="1.95" y="284.71" x="15.61" class="cls-1"/><rect height=".3" width="1.95" y="21.95" x="15.61" class="cls-1"/></g></g><g id="MTEXT"><text transform="translate(12.66 167.54) rotate(-90)" class="cls-4"><tspan y="0" x="0">400 mm</tspan></text></g><g><rect height="18.41" width="39.46" y="266.44" x="39.07" class="cls-2"/><rect height="7.89" width="39.46" y="21.8" x="39.07" class="cls-2"/><rect height="39.46" width="39.46" y="29.69" x="39.07" class="cls-2"/><rect height="39.46" width="39.46" y="226.98" x="39.07" class="cls-2"/><rect height="157.84" width="39.46" y="69.15" x="39.07" class="cls-2"/></g><g><line y2="235.86" x2="232.45" y1="235.86" x1="193.29" class="cls-2"/><rect height="1.95" width=".3" y="234.89" x="193.14" class="cls-1"/><rect height="1.95" width=".3" y="234.89" x="232.3" class="cls-1"/></g><g id="MTEXT-2"><text transform="translate(201.2 231.94)" class="cls-4"><tspan y="0" x="0">ø60 mm</tspan></text></g><circle r="19.73" cy="265.13" cx="212.87" class="cls-2"/><g><rect height="18.41" width="39.46" y="266.44" x="113.86" class="cls-2"/><rect height="7.89" width="39.46" y="21.8" x="113.86" class="cls-2"/><rect height="39.46" width="39.46" y="29.69" x="113.86" class="cls-2"/><rect height="39.46" width="39.46" y="226.98" x="113.86" class="cls-2"/><rect height="157.84" width="39.46" y="69.15" x="113.86" class="cls-2"/></g></g></g></g></svg>
