@@ -1,0 +1,181 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/csc-logo.png';
+import { services } from '../data/site';
+
+const path = Astro.url.pathname;
+const isActive = (href: string) => path === href || path === href + '/';
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="CSC Electronic AG — Startseite">
+      <Image src={logo} alt="CSC Electronic AG" class="brand-logo" widths={[300]} loading="eager" />
+    </a>
+
+    <nav class="nav-desktop" aria-label="Hauptnavigation">
+      <a href="/wir-ueber-uns" class:list={['nav-link', { active: isActive('/wir-ueber-uns') }]}>Über uns</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false">Leistungen</button>
+        <div class="dropdown-panel">
+          <div class="dropdown-grid">
+            {services.map((s, i) => (
+              <a href={`/${s.slug}`} class="dropdown-item">
+                <span class="dropdown-index">{String(i + 1).padStart(2, '0')}</span>
+                <span class="dropdown-title">{s.title}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      <a href="/kontakt" class:list={['nav-link', { active: isActive('/kontakt') }]}>Kontakt</a>
+    </nav>
+
+    <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile Navigation">
+      <a href="/wir-ueber-uns" class="mobile-link">Über uns</a>
+      <span class="mobile-heading">Leistungen</span>
+      {services.map((s, i) => (
+        <a href={`/${s.slug}`} class="mobile-link mobile-sub">
+          <span class="mobile-index">{String(i + 1).padStart(2, '0')}</span>{s.title}
+        </a>
+      ))}
+      <a href="/kontakt" class="mobile-link">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--color-paper) 82%, transparent);
+    backdrop-filter: saturate(140%) blur(16px);
+    -webkit-backdrop-filter: saturate(140%) blur(16px);
+    border-bottom: 1px solid var(--color-hairline);
+  }
+  .header-inner {
+    max-width: 1400px;
+    margin-inline: auto;
+    padding-inline: 28px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand-logo { height: 24px; width: auto; }
+
+  .nav-desktop { display: flex; align-items: center; gap: 40px; }
+  .nav-link {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-ink);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    opacity: 0.85;
+    transition: opacity 0.25s var(--ease);
+    font: inherit;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+  .nav-link:hover, .nav-link.active { opacity: 1; }
+  .nav-link.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px; background: var(--color-ink);
+  }
+
+  .nav-dropdown { position: relative; }
+  .dropdown-panel {
+    position: absolute;
+    top: calc(100% + 22px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    width: min(560px, 90vw);
+    background: var(--color-paper);
+    border: 1px solid var(--color-hairline);
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
+    box-shadow: 0 30px 60px -30px rgba(26,25,23,0.4);
+  }
+  .nav-dropdown:hover .dropdown-panel,
+  .nav-dropdown:focus-within .dropdown-panel {
+    opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .dropdown-item {
+    display: flex; align-items: baseline; gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.2s var(--ease);
+  }
+  .dropdown-item:hover { background: var(--color-paper-2); }
+  .dropdown-index { font-size: 11px; color: var(--color-muted); letter-spacing: 0.1em; }
+  .dropdown-title { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
+
+  .burger {
+    display: none; flex-direction: column; justify-content: center; gap: 6px;
+    width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 0;
+  }
+  .burger span { display: block; width: 26px; height: 1.5px; background: var(--color-ink); margin-left: auto; transition: transform 0.3s var(--ease), opacity 0.2s var(--ease); }
+  .burger[aria-expanded='true'] span:nth-child(1) { transform: translateY(3.75px) rotate(45deg); }
+  .burger[aria-expanded='true'] span:nth-child(2) { transform: translateY(-3.75px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    border-top: 1px solid var(--color-hairline);
+    background: var(--color-paper);
+    padding: 8px 28px 36px;
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+  }
+  .mobile-menu nav { display: flex; flex-direction: column; }
+  .mobile-link {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-hairline);
+    display: flex; align-items: baseline; gap: 14px;
+  }
+  .mobile-sub { font-family: var(--font-sans); font-size: 18px; font-weight: 400; }
+  .mobile-index { font-size: 12px; color: var(--color-muted); letter-spacing: 0.1em; }
+  .mobile-heading {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--color-muted); padding: 22px 0 8px;
+  }
+
+  @media (max-width: 900px) {
+    .nav-desktop { display: none; }
+    .burger { display: flex; }
+    .mobile-menu.open { display: block; }
+  }
+</style>
+
+<script>
+  const burger = document.querySelector('.burger');
+  const menu = document.getElementById('mobile-menu');
+  burger?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    if (menu) menu.hidden = !open;
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+</script>

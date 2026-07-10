@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import FeatureList from '../components/FeatureList.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const engineering = [
+  'Mechanikdesign (2D/3D)',
+  'Elektronische Baugruppen',
+  'Hardware- und Softwareentwicklung',
+  'Prototyping und Erstserien',
+  'Qualitätsprüfungen vor Ort',
+];
+const phases = [
+  { n: '01', title: 'Machbarkeitsstudie', desc: 'Markt- und Konzeptrecherche.' },
+  { n: '02', title: 'Alpha-Phase', desc: 'Prototypenverfeinerung im Produktionsmassstab.' },
+  { n: '03', title: 'Beta-Phase', desc: 'Finalisierung des vollständigen Industriedesigns.' },
+  { n: '04', title: 'Testphase', desc: 'Validierung für Form, Fit und Funktion.' },
+  { n: '05', title: 'Serienproduktion', desc: 'Kontinuierliche Prozessüberwachung.' },
+];
+---
+
+<BaseLayout title="Produkte in China herstellen" description="Beschaffung, Produktentwicklung, Qualitätskontrolle und Logistik über qualifizierte Partner in China.">
+  <PageHero
+    eyebrow="Fertigung in China"
+    title="Ihre Produkte in China herstellen."
+    lead="Lassen Sie in China herstellen — als Lösung zur Kostenoptimierung. Wir übernehmen Beschaffung, Produktentwicklung, Qualitätskontrolle und Logistik über einen qualifizierten lokalen Partner."
+  />
+
+  <Section eyebrow="Entwicklung & Engineering" title="Von der Idee zur Erstserie." width="wide">
+    <FeatureList items={engineering} columns={2} />
+  </Section>
+
+  <Section variant="dark" eyebrow="Entwicklungsprozess" title="Fünf Phasen bis zur Serie.">
+    <ol class="phases">
+      {phases.map((p) => (
+        <li class="phase reveal">
+          <span class="phase-n">{p.n}</span>
+          <h3 class="h3">{p.title}</h3>
+          <p style="margin-top:8px; color:#a1a1a6;">{p.desc}</p>
+        </li>
+      ))}
+    </ol>
+  </Section>
+
+  <ContactCTA />
+</BaseLayout>
+
+<style>
+  .phases {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
+  }
+  .phase {
+    padding: 28px 24px;
+    background: var(--color-char-2);
+    border: 1px solid rgba(231,227,215,0.12);
+  }
+  .phase-n { display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--color-acid); margin-bottom: 16px; }
+  @media (max-width: 1000px) { .phases { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .phases { grid-template-columns: 1fr; } }
+</style>

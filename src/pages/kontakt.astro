@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import { company } from '../data/site';
+
+const contacts = [
+  { label: 'Allgemeine Anfragen', email: company.emails.general },
+  { label: 'Verkauf · Offerten · Bestellungen', email: company.emails.sales },
+  { label: 'Buchhaltung', email: company.emails.accounting },
+];
+---
+
+<BaseLayout title="Kontakt" description="CSC Electronic AG · Höhenring 7 · CH-8052 Zürich · +41 44 301 24 34">
+  <PageHero
+    eyebrow="Kontakt"
+    title="Sprechen Sie mit uns."
+    lead="Wir freuen uns auf Ihre Anfrage — von der ersten Idee bis zur Auftragsabwicklung."
+  />
+
+  <Section width="wide">
+    <div class="contact-grid">
+      <div class="reveal">
+        <h2 class="h3">Adresse</h2>
+        <address class="contact-address">
+          <strong>{company.name}</strong><br />
+          {company.street}<br />
+          {company.city}<br />
+          {company.country}
+        </address>
+        <p class="contact-phone">
+          <a href={company.phoneHref} class="link-more">{company.phone}</a>
+        </p>
+      </div>
+
+      <div class="reveal">
+        <h2 class="h3">E-Mail</h2>
+        <ul class="contact-list">
+          {contacts.map((c) => (
+            <li class="contact-row">
+              <span class="contact-label">{c.label}</span>
+              <a href={`mailto:${c.email}`} class="contact-email">{c.email}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </Section>
+
+  <Section variant="alt" width="narrow" eyebrow="Rechtliches" title="Allgemeine Geschäftsbedingungen">
+    <p class="muted">
+      Es gelten unsere Allgemeinen Geschäftsbedingungen (AGB), Version 1/18 (2018).
+      Diese stellen wir Ihnen gerne auf Anfrage zur Verfügung.
+    </p>
+    <a href={`mailto:${company.emails.general}`} class="link-more" style="margin-top:20px;">AGB anfordern</a>
+  </Section>
+</BaseLayout>
+
+<style>
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); }
+  .contact-address { font-style: normal; line-height: 1.7; font-size: 19px; margin-top: 18px; }
+  .contact-phone { margin-top: 18px; font-size: 19px; }
+  .contact-list { list-style: none; margin: 18px 0 0; padding: 0; }
+  .contact-row {
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 18px 0; border-top: 1px solid var(--color-hairline);
+  }
+  .contact-label { font-size: 15px; color: var(--color-graphite); }
+  .contact-email { font-size: 19px; font-weight: 500; color: var(--color-navy); }
+  .contact-email:hover { text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>

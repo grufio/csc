@@ -1,0 +1,31 @@
+---
+interface Props {
+  variant?: 'light' | 'alt' | 'dark' | 'navy';
+  width?: 'narrow' | 'default' | 'wide';
+  eyebrow?: string;
+  title?: string;
+  id?: string;
+}
+const { variant = 'light', width = 'default', eyebrow, title, id } = Astro.props;
+const bg = variant === 'dark' ? 'bg-dark' : variant === 'navy' ? 'bg-navy' : variant === 'alt' ? 'bg-alt' : '';
+const container = width === 'narrow' ? 'container container-narrow' : width === 'wide' ? 'container-wide' : 'container';
+---
+
+<section class:list={['section', bg]} id={id}>
+  <div class={container}>
+    {(eyebrow || title) && (
+      <div class="section-head reveal">
+        {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+        {title && <h2 class="h2">{title}</h2>}
+      </div>
+    )}
+    <div class="reveal">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-head { max-width: 760px; margin-bottom: clamp(28px, 4vh, 48px); }
+  .section-head .h2 { margin-top: 10px; }
+</style>

@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import Callout from '../components/Callout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const marquee = ['Komponenten', 'Displays', 'Touchscreen', 'Steckverbinder', 'Kabelkonfektion', 'Obsolete Bauteile', 'China Sourcing', 'Supply Management'];
+---
+
+<BaseLayout>
+  <Hero />
+
+  <!-- Kinetic marquee band -->
+  <div class="marquee-band" aria-hidden="true">
+    <div class="marquee">
+      <div class="marquee-track">
+        {[...marquee, ...marquee].map((w) => <span>{w} <em>·</em> </span>)}
+      </div>
+    </div>
+  </div>
+
+  <ServiceGrid />
+
+  <!-- Über uns — editorial, asymmetric -->
+  <section class="section bg-alt">
+    <div class="container-wide about">
+      <p class="eyebrow reveal">Über uns</p>
+      <div class="about-row">
+        <h2 class="h1 reveal">Partner,<br />nicht nur<br />Lieferant.</h2>
+        <div class="about-side reveal">
+          <p class="lead">
+            Seit 30 Jahren beliefern wir Industriekunden in ganz Europa. Als unabhängiger
+            Lieferant vertreiben wir aktive, passive und elektromechanische Komponenten
+            namhafter Hersteller weltweit.
+          </p>
+          <p class="about-p">
+            Erfahrung, Fachkompetenz und ein transparentes, kundenorientiertes Vorgehen —
+            ein weltweites Lieferantennetzwerk und eine eigene Einkaufsorganisation in China
+            ermöglichen professionelle Unterstützung von der Anfrage bis zur Auftragsabwicklung.
+          </p>
+          <a href="/wir-ueber-uns" class="link-more">Mehr über uns</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Callout small="Try us" text="We try harder." variant="acid" />
+
+  <ContactCTA />
+</BaseLayout>
+
+<style>
+  .marquee-band {
+    border-block: 1px solid var(--color-hairline);
+    padding-block: 26px;
+    font-size: clamp(30px, 5vw, 68px);
+    color: var(--color-ink);
+  }
+  .marquee-track em { color: var(--color-acid); font-style: normal; -webkit-text-stroke: 0; }
+
+  .about-row {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 6vw, 100px);
+    align-items: start;
+  }
+  .about-side { max-width: 48ch; }
+  .about-p { margin-top: 22px; color: var(--color-ink-soft); }
+  .about-side .link-more { margin-top: 30px; }
+
+  @media (max-width: 820px) {
+    .about-row { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>

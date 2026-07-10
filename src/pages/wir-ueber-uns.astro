@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import FeatureList from '../components/FeatureList.astro';
+import Callout from '../components/Callout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const strengths = [
+  { title: 'Erfahrung', desc: 'Seit 30 Jahren am Markt für Industriekunden in ganz Europa.' },
+  { title: 'Fachkompetenz', desc: 'Professionelle technische Unterstützung von der Anfrage bis zur Auftragsabwicklung.' },
+  { title: 'Transparenz', desc: 'Ein kundenorientiertes und transparentes Vorgehen als Grundhaltung.' },
+  { title: 'Globales Netzwerk', desc: 'Weltweites Lieferantennetzwerk und eigene Einkaufsorganisation in China.' },
+];
+---
+
+<BaseLayout title="Über uns" description="CSC Electronic AG — seit 30 Jahren unabhängiger Lieferant für elektronische Bauelemente in ganz Europa.">
+  <PageHero
+    eyebrow="Über uns"
+    title="Ihr Anbieter für elektronische Bauelemente."
+    lead="Seit 30 Jahren beliefern wir Industriekunden in ganz Europa — als professioneller und unabhängiger Lieferant."
+  />
+
+  <Section width="narrow">
+    <p class="lead">
+      Als professioneller und unabhängiger Lieferant vertreiben wir aktive, passive und
+      elektromechanische Komponenten namhafter Hersteller weltweit. Zusätzlich bieten wir
+      Displays und kundenspezifische Touchscreen-Lösungen an.
+    </p>
+    <p style="margin-top:24px;">
+      Wir verstehen uns als Partner und nicht als einfache Lieferanten. Wir unterstützen bei
+      Beschaffungsthemen unterschiedlicher Komplexität — ein weltweites Lieferantennetzwerk
+      sowie eine eigene Einkaufsorganisation in China ermöglichen professionelle technische
+      Unterstützung von der Anfrage bis zur Auftragsabwicklung.
+    </p>
+  </Section>
+
+  <Section variant="alt" eyebrow="Unsere Stärken" title="Worauf sich unsere Kunden verlassen.">
+    <FeatureList items={strengths} columns={2} />
+  </Section>
+
+  <Callout small="Try us" text="We try harder." variant="acid" />
+
+  <ContactCTA />
+</BaseLayout>

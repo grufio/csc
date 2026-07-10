@@ -1,0 +1,114 @@
+---
+import { company, services } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="container-wide footer-inner">
+    <div class="footer-brand">
+      <div class="footer-wordmark">CSC<span> Electronic AG</span></div>
+      <p class="footer-tagline">{company.tagline}</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h3>Leistungen</h3>
+        <ul>
+          {services.map((s) => (
+            <li><a href={`/${s.slug}`}>{s.title}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Unternehmen</h3>
+        <ul>
+          <li><a href="/wir-ueber-uns">Über uns</a></li>
+          <li><a href="/kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Kontakt</h3>
+        <address>
+          {company.name}<br />
+          {company.street}<br />
+          {company.city}, {company.country}<br />
+          <a href={company.phoneHref}>{company.phone}</a><br />
+          <a href={`mailto:${company.emails.general}`}>{company.emails.general}</a>
+        </address>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-wide footer-bottom">
+    <span>© {new Date().getFullYear()} {company.name}. Alle Rechte vorbehalten.</span>
+    <span class="footer-legal">AGB (Version 1/18) auf Anfrage</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(242, 240, 233, 0.6);
+    padding-block: clamp(64px, 10vh, 110px) 40px;
+    font-size: 14px;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+  }
+  .footer-wordmark {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-paper);
+    line-height: 1;
+  }
+  .footer-wordmark span { font-weight: 500; color: rgba(242, 240, 233, 0.45); }
+  .footer-tagline {
+    margin-top: 16px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-navy-bright);
+  }
+  .footer-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .footer-col h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: rgba(242, 240, 233, 0.45);
+    margin: 0 0 18px;
+    font-weight: 500;
+  }
+  .footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col a { color: rgba(242, 240, 233, 0.8); transition: color 0.2s var(--ease); }
+  .footer-col a:hover { color: var(--color-paper); }
+  .footer-col address { font-style: normal; line-height: 1.8; color: rgba(242, 240, 233, 0.8); }
+
+  .footer-bottom {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(242, 240, 233, 0.14);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+    color: rgba(242, 240, 233, 0.4);
+  }
+
+  @media (max-width: 860px) {
+    .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+    .footer-cols { grid-template-columns: 1fr 1fr; gap: 28px; }
+  }
+  @media (max-width: 520px) {
+    .footer-cols { grid-template-columns: 1fr; }
+  }
+</style>

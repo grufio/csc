@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import FeatureList from '../components/FeatureList.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const leistungen = [
+  { title: 'Logistiklösungen', desc: 'Massgeschneiderte Unterstützung entlang der Supply Chain.' },
+  { title: 'Rahmenaufträge', desc: 'Planbare Belieferung über vereinbarte Zeiträume.' },
+  { title: 'Konsignationslager', desc: 'Material vor Ort, Bezahlung nach Verbrauch.' },
+  { title: 'Kitting', desc: 'Zusammenstellung von Komponenten zu einsatzfertigen Einheiten.' },
+  { title: 'C-Teile Management', desc: 'Effiziente Abwicklung von Klein- und Verbrauchsteilen.' },
+  { title: 'Lieferantenkonsolidierung', desc: 'Weniger Schnittstellen durch Bündelung von Lieferanten.' },
+];
+---
+
+<BaseLayout title="CSC Supply Management" description="Supply-Chain-Unterstützung für KMU: Rahmenaufträge, Konsignation, Kitting, C-Teile-Management und Lieferantenkonsolidierung.">
+  <PageHero
+    eyebrow="CSC Supply Management"
+    title="Supply Chain — flexibel gemanagt."
+    lead="Unterstützung entlang der Supply-Chain-Prozesse für KMU, die mit komplexen geopolitischen Herausforderungen konfrontiert sind."
+  />
+
+  <Section eyebrow="Leistungen" title="Komplexität, souverän gehandhabt." width="wide">
+    <FeatureList items={leistungen} columns={2} />
+  </Section>
+
+  <Section variant="alt" width="narrow">
+    <p class="lead">
+      Als unabhängiger Distributor bieten wir partnerschaftliche, auf die Kundenbedürfnisse
+      zugeschnittene Unterstützung — Flexibilität als zentrale Stärke im Umgang mit der
+      Komplexität des Supply Managements.
+    </p>
+  </Section>
+
+  <ContactCTA />
+</BaseLayout>

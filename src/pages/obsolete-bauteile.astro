@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const steps = [
+  { n: '01', title: 'Verifizierung der Bezugsquelle', desc: 'Prüfung der Herkunft über unser weltweites Einkaufsnetzwerk.' },
+  { n: '02', title: 'Bauteilprüfung', desc: 'Sichtprüfung, Oxidationsbewertung und Funktionsprüfung durch zertifizierte Prüfstellen — mit detaillierten Berichten.' },
+  { n: '03', title: 'Kundenprüfung optional', desc: 'Möglichkeit, eigene Prüfungen nach Ihren Spezifikationen durchzuführen.' },
+  { n: '04', title: 'Schriftliche Freigabe', desc: 'Freigabe innerhalb von 30 Tagen.' },
+  { n: '05', title: 'Zahlung nach Freigabe', desc: 'Bezahlung erst nach Ihrer Freigabe.' },
+];
+---
+
+<BaseLayout title="Obsolete Bauteile" description="Beschaffung abgekündigter elektronischer Komponenten über ein weltweites Netzwerk — geprüft und zertifiziert.">
+  <PageHero
+    eyebrow="Obsolete Bauteile"
+    title="Schwer zu findende Teile — sicher beschafft."
+    lead="Wir sind auf das Auffinden abgekündigter elektronischer Komponenten spezialisiert und übernehmen den gesamten Beschaffungsprozess."
+  />
+
+  <Section width="narrow">
+    <p class="lead">
+      Über unser weltweites Einkaufsnetzwerk finden wir abgekündigte Komponenten und
+      übernehmen den gesamten Beschaffungsprozess für schwer zu findende Teile — mit einem
+      klar strukturierten, transparenten Prüf- und Freigabeprozess.
+    </p>
+  </Section>
+
+  <Section variant="alt" eyebrow="Unser Prozess" title="Fünf Schritte zur sicheren Beschaffung.">
+    <ol class="process">
+      {steps.map((s) => (
+        <li class="process-step reveal">
+          <span class="process-n">{s.n}</span>
+          <div class="process-body">
+            <h3 class="h3">{s.title}</h3>
+            <p class="muted" style="margin-top:8px;">{s.desc}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </Section>
+
+  <ContactCTA />
+</BaseLayout>
+
+<style>
+  .process { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  .process-step {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    gap: 20px;
+    padding: 28px 0;
+    border-top: 1px solid var(--color-hairline);
+    align-items: start;
+  }
+  .process-n { font-size: 22px; font-weight: 600; color: var(--color-navy); letter-spacing: 0.01em; }
+  @media (max-width: 560px) {
+    .process-step { grid-template-columns: 1fr; gap: 8px; }
+  }
+</style>

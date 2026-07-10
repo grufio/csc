@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import FeatureList from '../components/FeatureList.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const leistungen = [
+  'Elektronische Komponenten und Dienstleistungen',
+  'Displays und Touchscreen-Lösungen',
+  'Stecker und Kabelkonfektion',
+  'Beschaffung obsoleter Bauteile',
+  'Fertigungskoordination in China',
+  'Testen, Prüfen und Programmieren',
+  'Supply-Chain-Management',
+];
+---
+
+<BaseLayout title="Elektronische Komponenten & Dienstleistungen" description="Aktive, passive und elektromechanische Komponenten namhafter Hersteller — professionell und unabhängig beschafft.">
+  <PageHero
+    eyebrow="Komponenten & Dienstleistungen"
+    title="Elektronische Komponenten und Dienstleistungen."
+    lead="CSC Electronic AG ist seit 30 Jahren ein professioneller und unabhängiger Lieferant für Industriekunden in ganz Europa."
+  />
+
+  <Section eyebrow="Leistungsspektrum" title="Alles aus einer Hand." width="wide">
+    <FeatureList items={leistungen} columns={2} />
+  </Section>
+
+  <Section variant="alt" width="narrow" eyebrow="Philosophie" title="Partner, nicht nur Lieferant.">
+    <p class="lead">
+      Wir verstehen uns als Partner und nicht als einfache Lieferanten und unterstützen bei
+      Beschaffungsthemen unterschiedlicher Komplexität.
+    </p>
+    <p style="margin-top:24px;">
+      <strong>Wettbewerbsvorteile:</strong> ein globales Lieferantennetzwerk und eine eigene
+      Einkaufsorganisation in China ermöglichen professionelle technische Unterstützung —
+      von der Anfrage bis zur Auftragsabwicklung.
+    </p>
+  </Section>
+
+  <ContactCTA />
+</BaseLayout>

@@ -1,0 +1,199 @@
+@import "tailwindcss";
+@import "@fontsource-variable/syne";
+@import "@fontsource-variable/inter";
+
+/* ============================================================
+   CSC Electronic AG — Design System
+   Editorial / architectural direction (à la floema.com):
+   big type, warm two-tone palette, hairlines, generous calm.
+   ============================================================ */
+
+@theme {
+  /* floema-style two-tone: charcoal + acid, one pale base */
+  --color-char: #211e1c;          /* charcoal — dark sections & text */
+  --color-char-2: #171513;        /* deepest */
+  --color-paper: #e7e3d7;         /* pale warm base */
+  --color-paper-2: #ddd8c9;       /* alt surface */
+  --color-acid: #e9e778;          /* signature accent */
+  --color-acid-deep: #d9d64f;
+  --color-ink: #211e1c;           /* text = charcoal */
+  --color-ink-soft: #4a4640;      /* softened */
+  --color-muted: #75705f;         /* secondary text */
+  --color-hairline: #c4bfad;      /* divider on pale */
+
+  /* Back-compat aliases used across older page styles */
+  --color-navy: #211e1c;
+  --color-navy-bright: #e9e778;
+  --color-graphite: #75705f;
+  --radius-card: 0px;
+  --radius-tile: 0px;
+
+  /* Type */
+  --font-display: "Syne Variable", "Inter Variable", sans-serif;
+  --font-sans: "Inter Variable", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Base ---------- */
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+*, *::before, *::after { box-sizing: border-box; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+::selection { background: var(--color-acid); color: var(--color-char); }
+
+/* ---------- Layout ---------- */
+.container { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: 28px; }
+.container-narrow { max-width: 780px; }
+.container-wide { max-width: 1400px; margin-inline: auto; padding-inline: 28px; }
+
+.section { padding-block: clamp(80px, 13vh, 160px); }
+.section-tight { padding-block: clamp(48px, 8vh, 96px); }
+
+.bg-alt { background: var(--color-paper-2); }
+.bg-dark { background: var(--color-char); color: var(--color-paper); }
+.bg-navy { background: var(--color-char); color: var(--color-paper); } /* legacy alias → charcoal */
+.bg-acid { background: var(--color-acid); color: var(--color-char); }
+
+/* ---------- Micro labels (mono-ish, uppercase, tracked) ---------- */
+.eyebrow, .label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-muted);
+  margin: 0 0 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+.bg-dark .eyebrow, .bg-navy .eyebrow { color: rgba(231,227,215,0.7); }
+.bg-acid .eyebrow { color: var(--color-char); opacity: 0.7; }
+
+/* ---------- Display type (Syne) ---------- */
+.display, .h1, .h2, .h3 { font-family: var(--font-display); font-weight: 700; margin: 0; }
+
+.display {
+  font-size: clamp(48px, 8.5vw, 128px);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+}
+.h1 { font-size: clamp(38px, 5.6vw, 84px); line-height: 1.0; letter-spacing: -0.03em; }
+.h2 { font-size: clamp(30px, 4.4vw, 62px); line-height: 1.02; letter-spacing: -0.028em; }
+.h3 { font-size: clamp(21px, 2vw, 28px); line-height: 1.12; letter-spacing: -0.02em; font-weight: 600; }
+
+.lead {
+  font-family: var(--font-sans);
+  font-size: clamp(19px, 1.9vw, 24px);
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: var(--color-ink-soft);
+  font-weight: 400;
+}
+.bg-dark .lead, .bg-navy .lead { color: rgba(231,227,215,0.82); }
+.bg-acid .lead { color: var(--color-char); opacity: 0.85; }
+.muted { color: var(--color-muted); }
+p { margin: 0; }
+
+/* ---------- Links & buttons ---------- */
+.link-more {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--color-ink);
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--color-ink);
+  transition: gap 0.35s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.link-more::after { content: "→"; font-size: 0.95em; }
+.link-more:hover { gap: 14px; }
+.bg-dark .link-more, .bg-navy .link-more { color: var(--color-paper); border-color: rgba(231,227,215,0.5); }
+.bg-acid .link-more { color: var(--color-char); border-color: var(--color-char); }
+
+/* floema-style round badge link */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 30px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  cursor: pointer;
+  background: var(--color-char);
+  color: var(--color-paper);
+  border: 1px solid var(--color-char);
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.badge:hover { background: var(--color-acid); color: var(--color-char); border-color: var(--color-acid); }
+.badge-acid { background: var(--color-acid); color: var(--color-char); border-color: var(--color-acid); }
+.badge-acid:hover { background: var(--color-char); color: var(--color-paper); border-color: var(--color-char); }
+
+/* legacy .btn maps onto the badge look */
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 30px; border-radius: 999px;
+  font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; line-height: 1;
+  cursor: pointer; border: 1px solid var(--color-char);
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease); }
+.btn-primary { background: var(--color-char); color: var(--color-paper); }
+.btn-primary:hover { background: var(--color-acid); color: var(--color-char); border-color: var(--color-acid); }
+.btn-secondary { background: transparent; color: var(--color-ink); }
+.btn-secondary:hover { background: var(--color-char); color: var(--color-paper); }
+.bg-dark .btn-primary, .bg-navy .btn-primary { background: var(--color-acid); color: var(--color-char); border-color: var(--color-acid); }
+.bg-dark .btn-primary:hover, .bg-navy .btn-primary:hover { background: transparent; color: var(--color-paper); border-color: var(--color-paper); }
+.bg-acid .btn-primary { background: var(--color-char); color: var(--color-paper); border-color: var(--color-char); }
+
+/* ---------- Surfaces ---------- */
+.hairline { border: none; border-top: 1px solid var(--color-hairline); margin: 0; }
+.tile {
+  padding: clamp(28px, 3vw, 44px);
+  background: transparent;
+  border: 1px solid var(--color-hairline);
+  height: 100%;
+}
+
+/* ---------- Kinetic marquee ---------- */
+.marquee { overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-flex; gap: 0; will-change: transform; animation: marquee 22s linear infinite; }
+.marquee-track span { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em; padding-inline: 0.3em; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+/* ---------- Reveal (mask-up) ---------- */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); will-change: opacity, transform; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}

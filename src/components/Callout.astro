@@ -1,0 +1,25 @@
+---
+interface Props {
+  text: string;
+  variant?: 'light' | 'alt' | 'dark' | 'navy' | 'acid';
+  small?: string;
+}
+const { text, variant = 'acid', small } = Astro.props;
+const bg =
+  variant === 'dark' ? 'bg-dark'
+  : variant === 'navy' ? 'bg-dark'
+  : variant === 'acid' ? 'bg-acid'
+  : variant === 'alt' ? 'bg-alt' : '';
+---
+
+<section class:list={['callout', bg]}>
+  <div class="container-wide reveal">
+    {small && <p class="eyebrow">{small}</p>}
+    <p class="display callout-text">{text}</p>
+  </div>
+</section>
+
+<style>
+  .callout { padding-block: clamp(96px, 18vh, 220px); }
+  .callout-text { max-width: 16ch; }
+</style>

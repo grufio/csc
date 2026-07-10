@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import SpecTable from '../components/SpecTable.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const pcap = [
+  { label: 'Aufbau', value: 'Glass/Glass · Glass/Film/Film' },
+  { label: 'Größen', value: '1.8" – 32"' },
+  { label: 'Touch', value: 'Multi-Touch fähig' },
+];
+const tft = [
+  { label: 'Größen', value: '1.77" – 15.6"' },
+  { label: 'Automation', value: 'COG/FOG im Haus' },
+  { label: 'Anpassung', value: 'LCD-Panel, Backlight, FPC' },
+];
+const bonding = [
+  { label: 'Verfahren', value: 'OCA · OCR · Silikon' },
+  { label: 'Größen', value: '1.8" – 32"' },
+  { label: 'Tests', value: 'Zuverlässigkeit für Marine' },
+];
+---
+
+<BaseLayout title="Displays & Touchscreen" description="Displays namhafter Hersteller und kundenspezifische Touchscreen-Gesamtlösungen — PCAP, TFT und Bonding.">
+  <PageHero
+    eyebrow="Displays & Touchscreen"
+    title="Displays und Touchscreen — Gesamtlösungen."
+    lead="Von der Beschaffung namhafter Displays bis zur kundenspezifischen Touchscreen-Lösung."
+  />
+
+  <Section width="narrow" eyebrow="Displays" title="Verfügbarkeit, auf die Sie zählen können.">
+    <p class="lead">
+      Wir nutzen unsere langjährige Erfahrung in der Beschaffung von Displays namhafter
+      Hersteller über unsere Einkaufsorganisation in China, um Verfügbarkeitszusagen für
+      unsere Kunden sicherzustellen.
+    </p>
+  </Section>
+
+  <Section variant="alt" width="narrow" eyebrow="Touchscreen" title="Kundenspezifische Gesamtlösungen.">
+    <p class="lead">
+      Wir sind Ihr Ansprechpartner für Touchscreen-Lösungen und arbeiten mit chinesischen
+      Fertigungspartnern an kundenspezifischen Angeboten. Technische Abstimmungen erfolgen
+      direkt mit der Fabrik in Englisch.
+    </p>
+  </Section>
+
+  <Section eyebrow="Technologien" title="Präzise abgestimmt auf Ihre Anwendung." width="wide">
+    <div class="spec-grid">
+      <SpecTable title="PCAP" rows={pcap} />
+      <SpecTable title="TFT Display" rows={tft} />
+      <SpecTable title="Bonding & Produktlinien" rows={bonding} />
+    </div>
+  </Section>
+
+  <ContactCTA />
+</BaseLayout>
+
+<style>
+  .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 900px) { .spec-grid { grid-template-columns: 1fr; } }
+</style>

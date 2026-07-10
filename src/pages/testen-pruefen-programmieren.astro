@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import FeatureList from '../components/FeatureList.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const leistungen = [
+  'Testen',
+  'Analyse',
+  'Programmieren',
+  'Tape and Reel',
+  'Bauteilselektion',
+  'Kundenspezifische Beschriftung / Labeling',
+  'Wafer-Housing-Prozesse',
+];
+---
+
+<BaseLayout title="Testen, Prüfen, Programmieren" description="Testen, Analyse, Programmierung, Tape & Reel, Bauteilselektion und kundenspezifisches Labeling — wenn interne Kapazitäten fehlen.">
+  <PageHero
+    eyebrow="Testen · Prüfen · Programmieren"
+    title="Kapazität, wenn Sie sie brauchen."
+    lead="Sie wollen Ihre Produkte testen, modifizieren oder analysieren, haben aber die Kapazität dafür nicht? Wir unterstützen Unternehmen, denen dafür interne Kapazitäten fehlen."
+  />
+
+  <Section eyebrow="Leistungen" title="Ein flexibles Leistungsspektrum." width="wide">
+    <FeatureList items={leistungen} columns={2} />
+  </Section>
+
+  <Section variant="alt" width="narrow">
+    <p class="lead">
+      Sprechen Sie uns direkt an, wenn Sie eine hier nicht aufgeführte Leistung benötigen —
+      wir sind flexibel.
+    </p>
+  </Section>
+
+  <ContactCTA />
+</BaseLayout>
