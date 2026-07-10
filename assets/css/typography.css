@@ -1,0 +1,85 @@
+/* Self-hosted variable font. Space Grotesk woff2 placed in assets/fonts/.
+   Falls back to system grotesk stack if the file is absent. */
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('~/assets/fonts/SpaceGrotesk-Variable.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+:root {
+  --font-body: 'Space Grotesk', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --font-display: var(--font-body);
+
+  /* Fluid title scale: clamp(min, base + 100vw * factor, max) */
+  --title-1: clamp(44px, 26px + 100vw * 0.066, 200px);
+  --title-2: clamp(38px, 24px + 100vw * 0.05, 132px);
+  --title-3: clamp(30px, 22px + 100vw * 0.035, 88px);
+  --title-4: clamp(26px, 20px + 100vw * 0.022, 60px);
+  --title-5: clamp(22px, 18px + 100vw * 0.014, 40px);
+  --title-6: clamp(19px, 16px + 100vw * 0.009, 28px);
+  --body-lg: clamp(18px, 16px + 100vw * 0.005, 26px);
+  --body: clamp(15px, 14px + 100vw * 0.0032, 20px);
+  --caption: clamp(12px, 11px + 100vw * 0.0026, 15px);
+}
+
+.title-1 {
+  font-size: var(--title-1);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+.title-2 {
+  font-size: var(--title-2);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+.title-3 {
+  font-size: var(--title-3);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+}
+.title-4 {
+  font-size: var(--title-4);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+.title-5 {
+  font-size: var(--title-5);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+}
+.title-6 {
+  font-size: var(--title-6);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+.body-lg {
+  font-size: var(--body-lg);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+.body {
+  font-size: var(--body);
+  line-height: 1.55;
+}
+.caption {
+  font-size: var(--caption);
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  font-size: var(--caption);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-mute);
+  font-weight: 500;
+}

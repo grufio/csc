@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Language"
+  },
+  "cta": {
+    "contact": "Get in touch",
+    "allServices": "All services",
+    "discover": "Discover more",
+    "getInTouch": "Talk to us"
+  },
+  "home": {
+    "servicesEyebrow": "What we do",
+    "servicesTitle": "Our services",
+    "aboutEyebrow": "Who we are"
+  },
+  "contact": {
+    "title": "Contact",
+    "general": "General enquiries",
+    "sales": "Sales / Quotes",
+    "accounting": "Accounting",
+    "phone": "Phone",
+    "address": "Address",
+    "legal": "Terms"
+  },
+  "meta": {
+    "processTitle": "Process",
+    "brandsTitle": "Brands",
+    "servicesTitle": "Services"
+  }
+}

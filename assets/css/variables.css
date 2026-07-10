@@ -1,0 +1,30 @@
+:root {
+  /* ---- Brand palette ---- */
+  --color-black: #0a0a0b;
+  --color-ink: #141416;
+  --color-white: #ffffff;
+  --color-paper: #f5f3ee; /* off-white background */
+  --color-paper-2: #ebe8e0;
+  --color-mute: #6b6a66;
+  --color-line: rgba(20, 20, 22, 0.14);
+  --color-accent: #d8451f; /* CSC signal red-orange */
+  --color-accent-2: #1f4fd8;
+
+  --bg: var(--color-paper);
+  --fg: var(--color-ink);
+
+  /* ---- 24-column fluid grid ---- */
+  --grid-columns: 24;
+  --grid-gutter: clamp(8px, 6.5px + 100vw * 0.004, 22px);
+  --grid-margin: clamp(16px, 8px + 100vw * 0.02, 120px);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.9s;
+
+  /* ---- Layout ---- */
+  --header-h: clamp(64px, 56px + 100vw * 0.01, 92px);
+}
+
+/* Breakpoints reference (used in media queries throughout):
+   410 / 743 / 1023 / 1290 / 1440 / 1700 / 2000 */

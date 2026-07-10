@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Start",
+    "about": "Über uns",
+    "services": "Leistungen",
+    "contact": "Kontakt",
+    "menu": "Menü",
+    "close": "Schliessen",
+    "language": "Sprache"
+  },
+  "cta": {
+    "contact": "Kontakt aufnehmen",
+    "allServices": "Alle Leistungen",
+    "discover": "Mehr erfahren",
+    "getInTouch": "Sprechen Sie mit uns"
+  },
+  "home": {
+    "servicesEyebrow": "Was wir tun",
+    "servicesTitle": "Unsere Leistungen",
+    "aboutEyebrow": "Wer wir sind"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "general": "Allgemeine Anfragen",
+    "sales": "Verkauf / Offerten",
+    "accounting": "Buchhaltung",
+    "phone": "Telefon",
+    "address": "Adresse",
+    "legal": "AGB"
+  },
+  "meta": {
+    "processTitle": "Vorgehen",
+    "brandsTitle": "Marken",
+    "servicesTitle": "Leistungen"
+  }
+}
