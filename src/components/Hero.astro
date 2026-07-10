@@ -1,92 +1,78 @@
 ---
 import { Image } from 'astro:assets';
 import circuit from '../assets/images/circuit-board.jpg';
-import { company } from '../data/site';
 ---
 
 <section class="hero">
   <div class="container-wide">
-    <div class="hero-top">
-      <p class="eyebrow reveal">Zürich · seit 1994</p>
-      <h1 class="display hero-title reveal">
-        Ihr Lieferant für <span class="accent">elektronische</span> Komponenten.
-      </h1>
-    </div>
+    <h1 class="display hero-title reveal">
+      Ihr Lieferant für <span class="hero-em">elektronische</span> Komponenten.
+    </h1>
 
-    <div class="hero-meta reveal">
-      <div class="hero-lead">
-        <p class="lead">
-          Ihr Ansprechpartner für elektronische Komponenten namhafter Hersteller —
-          Beschaffung, Fertigungsdienstleistungen aus China und Supply-Chain-Management.
-        </p>
-        <div class="hero-actions">
-          <a href="#leistungen" class="btn btn-primary">Leistungen</a>
-          <a href="/kontakt" class="link-more">Kontakt aufnehmen</a>
-        </div>
-      </div>
-      <div class="hero-index">
-        <span class="label">Kompetenzen</span>
-        <ul>
-          <li>Komponenten</li>
-          <li>Displays &amp; Touch</li>
-          <li>Kabelkonfektion</li>
-          <li>Supply Management</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+    <div class="hero-stage reveal">
+      <figure class="hero-frame">
+        <Image
+          src={circuit}
+          alt="Elektronische Leiterplatte mit integrierten Schaltkreisen"
+          widths={[800, 1200, 1600, 2000]}
+          sizes="100vw"
+          loading="eager"
+          class="hero-img"
+        />
+      </figure>
 
-  <div class="container-wide hero-media reveal">
-    <figure class="hero-frame">
-      <Image
-        src={circuit}
-        alt="Elektronische Leiterplatte mit integrierten Schaltkreisen"
-        widths={[800, 1200, 1600, 2000]}
-        sizes="100vw"
-        loading="eager"
-        class="hero-img"
-      />
-      <figcaption class="label hero-cap">Fig. 01 — Integrated Circuits</figcaption>
-    </figure>
+      <div class="hero-tagline">
+        <p>Rethinking sourcing beyond expectations</p>
+        <hr class="hairline" />
+        <a href="#leistungen" class="hero-how">So arbeiten wir <span aria-hidden="true">↓</span></a>
+      </div>
+
+      <a href="/kontakt" class="hero-card">
+        <span class="hero-card-text">Grosse Projekte beginnen mit einem guten Gespräch.</span>
+        <span class="hero-card-cta"><span class="icon-circle" aria-hidden="true">✉</span> Kontakt aufnehmen</span>
+      </a>
+    </div>
   </div>
 </section>
 
 <style>
-  .hero { padding-top: clamp(48px, 8vh, 96px); }
-  .hero-title { margin-top: 22px; max-width: 16ch; }
-  .accent {
-    background: var(--color-acid);
-    box-shadow: 0.12em 0 0 var(--color-acid), -0.12em 0 0 var(--color-acid);
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
+  .hero { padding-top: clamp(24px, 5vh, 64px); padding-bottom: clamp(40px, 7vh, 90px); }
+  .hero-title { text-align: center; max-width: 20ch; margin-inline: auto; }
+  .hero-em { font-style: italic; font-weight: 500; }
+
+  .hero-stage { position: relative; margin-top: clamp(28px, 5vh, 64px); }
+  .hero-frame { position: relative; margin: 0; border-radius: 22px; overflow: hidden; }
+  .hero-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .hero-frame::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to top, rgba(10,20,16,0.55) 0%, rgba(10,20,16,0.12) 26%, transparent 48%);
   }
 
-  .hero-meta {
-    margin-top: clamp(40px, 6vh, 72px);
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: clamp(32px, 6vw, 96px);
-    align-items: end;
-    padding-top: 32px;
-    border-top: 1px solid var(--color-hairline);
+  .hero-tagline {
+    position: absolute; left: clamp(20px, 3vw, 44px); bottom: clamp(20px, 3vw, 40px);
+    max-width: 260px; color: var(--color-grey);
+    text-shadow: 0 1px 20px rgba(0,0,0,0.35);
   }
-  .hero-lead { max-width: 46ch; }
-  .hero-actions { margin-top: 30px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .hero-tagline p { font-size: 17px; line-height: 1.3; letter-spacing: -0.01em; }
+  .hero-tagline .hairline { margin: 14px 0; border-color: rgba(236,234,227,0.4); }
+  .hero-how { font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-grey); }
 
-  .hero-index ul { list-style: none; margin: 14px 0 0; padding: 0; }
-  .hero-index li {
-    font-size: 16px; color: var(--color-ink-soft);
-    padding: 9px 0; border-top: 1px solid var(--color-hairline);
+  .hero-card {
+    position: absolute; right: clamp(20px, 3vw, 40px); bottom: clamp(20px, 3vw, 40px);
+    width: min(320px, 72vw);
+    background: rgba(28,28,26,0.62); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(236,234,227,0.18); border-radius: 18px; padding: 22px;
+    color: var(--color-grey); display: flex; flex-direction: column; gap: 20px;
+    transition: background-color 0.3s var(--ease);
   }
-  .hero-index li:first-of-type { border-top: none; }
+  .hero-card:hover { background: rgba(14,42,34,0.78); }
+  .hero-card-text { font-size: 17px; line-height: 1.35; letter-spacing: -0.01em; }
+  .hero-card-cta { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+  .hero-card .icon-circle { width: 40px; height: 40px; font-size: 15px; color: var(--color-grey); }
 
-  .hero-media { margin-top: clamp(48px, 8vh, 100px); }
-  .hero-frame { margin: 0; }
-  .hero-img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; }
-  .hero-cap { margin-top: 14px; color: var(--color-muted); }
-
-  @media (max-width: 800px) {
-    .hero-meta { grid-template-columns: 1fr; gap: 40px; }
-    .hero-img { aspect-ratio: 4 / 3; }
+  @media (max-width: 760px) {
+    .hero-img { aspect-ratio: 3 / 4; }
+    .hero-tagline { display: none; }
+    .hero-card { position: static; width: auto; margin-top: 14px; background: var(--color-green); }
   }
 </style>

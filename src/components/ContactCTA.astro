@@ -4,16 +4,16 @@ interface Props { text?: string; }
 const { text = 'Von der Anfrage bis zur Auftragsabwicklung — wir unterstützen Sie bei Beschaffungsthemen jeder Komplexität.' } = Astro.props;
 ---
 
-<section class="cta bg-dark">
+<section class="cta bg-green">
   <div class="container-wide reveal">
     <p class="eyebrow">Kontakt</p>
     <div class="cta-row">
-      <h2 class="h1 cta-title">Sprechen Sie<br />uns an.</h2>
+      <h2 class="h1 cta-title">Sprechen Sie uns an.</h2>
       <div class="cta-side">
         <p class="lead">{text}</p>
         <div class="cta-actions">
-          <a href="/kontakt" class="badge badge-acid">Kontakt aufnehmen</a>
-          <a href={`mailto:${company.emails.sales}`} class="cta-mail">{company.emails.sales}</a>
+          <a href="/kontakt" class="btn btn-primary">Kontakt aufnehmen</a>
+          <a href={`mailto:${company.emails.sales}`} class="link-more">{company.emails.sales}</a>
         </div>
       </div>
     </div>
@@ -21,22 +21,12 @@ const { text = 'Von der Anfrage bis zur Auftragsabwicklung — wir unterstützen
 </section>
 
 <style>
-  .cta { padding-block: clamp(80px, 13vh, 160px); }
+  .cta { padding-block: clamp(72px, 12vh, 150px); }
   .cta-row {
-    margin-top: 24px;
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: clamp(32px, 6vw, 96px);
-    align-items: end;
+    margin-top: 22px; display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: clamp(28px, 5vw, 88px); align-items: end;
   }
-  .cta-title { color: var(--color-paper); }
   .cta-side { max-width: 44ch; }
-  .cta-actions { margin-top: 28px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
-  .cta-mail {
-    font-size: 15px; color: var(--color-acid);
-    border-bottom: 1px solid rgba(233,231,120,0.5); padding-bottom: 3px;
-  }
-  @media (max-width: 820px) {
-    .cta-row { grid-template-columns: 1fr; gap: 32px; align-items: start; }
-  }
+  .cta-actions { margin-top: 26px; display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+  @media (max-width: 800px) { .cta-row { grid-template-columns: 1fr; gap: 28px; align-items: start; } }
 </style>

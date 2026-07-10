@@ -13,23 +13,22 @@ const isActive = (href: string) => path === href || path === href + '/';
       <Image src={logo} alt="CSC Electronic AG" class="brand-logo" widths={[300]} loading="eager" />
     </a>
 
-    <nav class="nav-desktop" aria-label="Hauptnavigation">
-      <a href="/wir-ueber-uns" class:list={['nav-link', { active: isActive('/wir-ueber-uns') }]}>Über uns</a>
-      <div class="nav-dropdown">
-        <button class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false">Leistungen</button>
-        <div class="dropdown-panel">
-          <div class="dropdown-grid">
-            {services.map((s, i) => (
-              <a href={`/${s.slug}`} class="dropdown-item">
-                <span class="dropdown-index">{String(i + 1).padStart(2, '0')}</span>
-                <span class="dropdown-title">{s.title}</span>
-              </a>
-            ))}
-          </div>
+    <nav class="pillbar" aria-label="Hauptnavigation">
+      <a href="/wir-ueber-uns" class:list={['pill', { active: isActive('/wir-ueber-uns') }]}>Über uns</a>
+      <div class="pill-dd">
+        <button class="pill pill-btn" aria-haspopup="true" aria-expanded="false">Leistungen</button>
+        <div class="dropdown">
+          {services.map((s, i) => (
+            <a href={`/${s.slug}`} class="dd-item">
+              <span class="dd-index">{String(i + 1).padStart(2, '0')}</span>{s.title}
+            </a>
+          ))}
         </div>
       </div>
-      <a href="/kontakt" class:list={['nav-link', { active: isActive('/kontakt') }]}>Kontakt</a>
+      <a href="/kontakt" class:list={['pill', { active: isActive('/kontakt') }]}>Kontakt</a>
     </nav>
+
+    <span class="lang-pill">DE</span>
 
     <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span>
@@ -38,131 +37,103 @@ const isActive = (href: string) => path === href || path === href + '/';
 
   <div class="mobile-menu" id="mobile-menu" hidden>
     <nav aria-label="Mobile Navigation">
-      <a href="/wir-ueber-uns" class="mobile-link">Über uns</a>
-      <span class="mobile-heading">Leistungen</span>
+      <a href="/wir-ueber-uns" class="m-link">Über uns</a>
+      <span class="m-head">Leistungen</span>
       {services.map((s, i) => (
-        <a href={`/${s.slug}`} class="mobile-link mobile-sub">
-          <span class="mobile-index">{String(i + 1).padStart(2, '0')}</span>{s.title}
-        </a>
+        <a href={`/${s.slug}`} class="m-link m-sub"><span class="m-index">{String(i + 1).padStart(2, '0')}</span>{s.title}</a>
       ))}
-      <a href="/kontakt" class="mobile-link">Kontakt</a>
+      <a href="/kontakt" class="m-link">Kontakt</a>
     </nav>
   </div>
 </header>
 
 <style>
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: color-mix(in srgb, var(--color-paper) 82%, transparent);
-    backdrop-filter: saturate(140%) blur(16px);
-    -webkit-backdrop-filter: saturate(140%) blur(16px);
-    border-bottom: 1px solid var(--color-hairline);
-  }
+  .site-header { position: sticky; top: 0; z-index: 100; }
   .header-inner {
-    max-width: 1400px;
-    margin-inline: auto;
-    padding-inline: 28px;
-    height: 68px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+    max-width: 1440px; margin-inline: auto; padding: 16px 30px;
+    display: flex; align-items: center; gap: 16px;
   }
-  .brand-logo { height: 24px; width: auto; }
+  .brand { margin-right: auto; }
+  .brand-logo { height: 22px; width: auto; }
 
-  .nav-desktop { display: flex; align-items: center; gap: 40px; }
-  .nav-link {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--color-ink);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    position: relative;
-    opacity: 0.85;
-    transition: opacity 0.25s var(--ease);
-    font: inherit;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-  }
-  .nav-link:hover, .nav-link.active { opacity: 1; }
-  .nav-link.active::after {
-    content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px; background: var(--color-ink);
-  }
-
-  .nav-dropdown { position: relative; }
-  .dropdown-panel {
-    position: absolute;
-    top: calc(100% + 22px);
-    left: 50%;
-    transform: translateX(-50%) translateY(6px);
-    width: min(560px, 90vw);
-    background: var(--color-paper);
+  /* connected pill bar */
+  .pillbar {
+    display: flex; align-items: stretch;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
     border: 1px solid var(--color-hairline);
-    padding: 10px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
-    box-shadow: 0 30px 60px -30px rgba(26,25,23,0.4);
+    border-radius: 999px;
+    padding: 4px;
   }
-  .nav-dropdown:hover .dropdown-panel,
-  .nav-dropdown:focus-within .dropdown-panel {
-    opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+  .pill {
+    display: inline-flex; align-items: center;
+    font-family: var(--font-sans);
+    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--color-ink);
+    padding: 9px 18px; border-radius: 999px;
+    background: transparent; border: none; cursor: pointer;
+    transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
+    white-space: nowrap;
   }
-  .dropdown-grid { display: grid; grid-template-columns: 1fr 1fr; }
-  .dropdown-item {
+  .pill:hover, .pill.active { background: var(--color-green); color: var(--color-grey); }
+  .pill-btn { font: inherit; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+
+  .lang-pill {
+    display: inline-flex; align-items: center;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 10px 15px; border-radius: 999px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    border: 1px solid var(--color-hairline);
+    color: var(--color-ink);
+  }
+
+  .pill-dd { position: relative; display: flex; }
+  .dropdown {
+    position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(6px);
+    width: min(340px, 82vw);
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: saturate(160%) blur(20px);
+    -webkit-backdrop-filter: saturate(160%) blur(20px);
+    border: 1px solid var(--color-hairline); border-radius: 18px; padding: 8px;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), visibility 0.28s;
+    box-shadow: 0 30px 60px -28px rgba(14,42,34,0.45);
+  }
+  .pill-dd:hover .dropdown, .pill-dd:focus-within .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .dd-item {
     display: flex; align-items: baseline; gap: 12px;
-    padding: 14px 16px;
-    border-bottom: 1px solid transparent;
+    padding: 11px 14px; border-radius: 12px; font-size: 14px; font-weight: 500;
     transition: background-color 0.2s var(--ease);
   }
-  .dropdown-item:hover { background: var(--color-paper-2); }
-  .dropdown-index { font-size: 11px; color: var(--color-muted); letter-spacing: 0.1em; }
-  .dropdown-title { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
+  .dd-item:hover { background: var(--color-grey-2); }
+  .dd-index { font-size: 11px; color: var(--color-muted); letter-spacing: 0.06em; }
 
-  .burger {
-    display: none; flex-direction: column; justify-content: center; gap: 6px;
-    width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 0;
-  }
-  .burger span { display: block; width: 26px; height: 1.5px; background: var(--color-ink); margin-left: auto; transition: transform 0.3s var(--ease), opacity 0.2s var(--ease); }
+  .burger { display: none; flex-direction: column; justify-content: center; gap: 6px; width: 42px; height: 42px; background: rgba(255,255,255,0.72); border: 1px solid var(--color-hairline); border-radius: 999px; cursor: pointer; }
+  .burger span { display: block; width: 18px; height: 1.5px; background: var(--color-ink); margin-inline: auto; transition: transform 0.3s var(--ease), opacity 0.2s var(--ease); }
   .burger[aria-expanded='true'] span:nth-child(1) { transform: translateY(3.75px) rotate(45deg); }
   .burger[aria-expanded='true'] span:nth-child(2) { transform: translateY(-3.75px) rotate(-45deg); }
 
   .mobile-menu {
-    display: none;
-    border-top: 1px solid var(--color-hairline);
-    background: var(--color-paper);
-    padding: 8px 28px 36px;
-    max-height: calc(100vh - 68px);
-    overflow-y: auto;
+    display: none; margin: 0 30px; padding: 14px 20px 24px;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: saturate(160%) blur(20px); -webkit-backdrop-filter: saturate(160%) blur(20px);
+    border: 1px solid var(--color-hairline); border-radius: 20px;
   }
   .mobile-menu nav { display: flex; flex-direction: column; }
-  .mobile-link {
-    font-family: var(--font-display);
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--color-ink);
-    padding: 16px 0;
-    border-bottom: 1px solid var(--color-hairline);
-    display: flex; align-items: baseline; gap: 14px;
+  .m-link {
+    font-family: var(--font-display); font-size: 22px; font-weight: 600; letter-spacing: -0.02em;
+    color: var(--color-ink); padding: 13px 0; border-bottom: 1px solid var(--color-hairline);
+    display: flex; align-items: baseline; gap: 12px;
   }
-  .mobile-sub { font-family: var(--font-sans); font-size: 18px; font-weight: 400; }
-  .mobile-index { font-size: 12px; color: var(--color-muted); letter-spacing: 0.1em; }
-  .mobile-heading {
-    font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
-    color: var(--color-muted); padding: 22px 0 8px;
-  }
+  .m-sub { font-size: 17px; font-weight: 500; }
+  .m-index { font-size: 12px; color: var(--color-muted); }
+  .m-head { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-muted); padding: 18px 0 6px; }
 
   @media (max-width: 900px) {
-    .nav-desktop { display: none; }
+    .pillbar, .lang-pill { display: none; }
     .burger { display: flex; }
     .mobile-menu.open { display: block; }
   }

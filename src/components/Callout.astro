@@ -1,25 +1,36 @@
 ---
+import LineSkyline from './LineSkyline.astro';
 interface Props {
   text: string;
-  variant?: 'light' | 'alt' | 'dark' | 'navy' | 'acid';
+  sub?: string;
   small?: string;
+  variant?: 'green' | 'acid';
+  arrow?: boolean;
+  skyline?: boolean;
 }
-const { text, variant = 'acid', small } = Astro.props;
-const bg =
-  variant === 'dark' ? 'bg-dark'
-  : variant === 'navy' ? 'bg-dark'
-  : variant === 'acid' ? 'bg-acid'
-  : variant === 'alt' ? 'bg-alt' : '';
+const { text, sub, small, variant = 'green', arrow = false, skyline = true } = Astro.props;
+const bg = variant === 'acid' ? 'bg-acid' : 'bg-green';
 ---
 
 <section class:list={['callout', bg]}>
-  <div class="container-wide reveal">
-    {small && <p class="eyebrow">{small}</p>}
-    <p class="display callout-text">{text}</p>
+  <div class="container callout-head reveal">
+    {small && <p class="eyebrow callout-eyebrow">{small}</p>}
+    <h2 class="h1 callout-text">{text}</h2>
+    {sub && <p class="lead callout-sub">{sub}</p>}
+    {arrow && <a href="#leistungen" class="icon-circle callout-arrow" aria-label="Weiter">↓</a>}
   </div>
+  {skyline && variant === 'green' && (
+    <div class="callout-skyline reveal"><LineSkyline /></div>
+  )}
 </section>
 
 <style>
-  .callout { padding-block: clamp(96px, 18vh, 220px); }
-  .callout-text { max-width: 16ch; }
+  .callout { padding-top: clamp(72px, 12vh, 130px); padding-bottom: 0; overflow: hidden; }
+  .callout-head { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .callout-eyebrow { justify-content: center; }
+  .callout-text { max-width: 20ch; }
+  .callout-sub { margin-top: 20px; max-width: 46ch; }
+  .callout-arrow { margin-top: 40px; }
+  .callout-skyline { margin-top: clamp(48px, 8vh, 96px); padding-inline: clamp(16px, 4vw, 60px); }
+  .bg-acid.callout { padding-bottom: clamp(72px, 12vh, 130px); }
 </style>

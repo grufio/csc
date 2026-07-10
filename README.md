@@ -36,12 +36,14 @@ src/
 
 ## Design-System
 
-Bold, editorial, high-contrast — in Anlehnung an floema.com.
+In Anlehnung an floema.com — große solide Farbblöcke, ruhige Grotesk-Typografie, weiche Rundungen.
 
-- **Palette (Zwei-Ton + Akzent):** pale `#e7e3d7`, Charcoal `#211e1c`, Acid `#e9e778`
-- **Typografie:** Syne (Display), Inter (Text); großformatige, eng laufende Headlines, sentence-case
-- **Muster:** Mono-Micro-Labels, Acid-Highlight-Marker, kinetischer Marquee, Haarlinien-Divider,
-  nummerierter Leistungs-Index, full-bleed Bilder, große Acid-/Charcoal-Farbblöcke, Round-Badge- & Pfeil-Links
+- **Palette (3 Blöcke + Akzent):** warmes Hellgrau `#eceae3` (Basis), tiefes Dunkelgrün `#0e2a22`,
+  Chartreuse `#e9e778` (Akzent), Ink `#1c1c1a`
+- **Typografie:** Hanken Grotesk (Display + Text), mittlere Gewichte, sentence-case, moderate Größen
+- **Muster:** Pill-Tab-Navigation, große abwechselnde Farbsektionen, Line-Art-Komponenten-„Skyline",
+  runde Icon-Badges & Kreis-Pfeil-Buttons, nummerierter Leistungs-Index, kinetischer Marquee,
+  zentrierte Statements auf Dunkelgrün
 - **Motion:** dezente Scroll-Reveals (IntersectionObserver), respektiert `prefers-reduced-motion`
 
 ## Inhalte
