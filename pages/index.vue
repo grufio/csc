@@ -10,8 +10,8 @@ useReveal(root)
 
 const titleLines = computed(() =>
   loc.value === 'de'
-    ? ['Ihr Lieferant für', 'elektronische', 'Komponenten.']
-    : ['Your supplier for', 'electronic', 'components.'],
+    ? ['Ihr Lieferant für', 'elektronische Komponenten.']
+    : ['Your supplier for', 'electronic components.'],
 )
 
 const stats = computed(() => [
@@ -46,7 +46,7 @@ useSeoMeta({
     />
 
     <div class="section--tight container">
-      <ImageReveal src="/images/integrated-circuits.jpg" :alt="loc === 'de' ? 'Integrierte Schaltkreise' : 'Integrated circuits'" ratio="16 / 9" />
+      <ImageReveal src="/images/services/hero.jpg" :alt="loc === 'de' ? 'Elektronische Komponenten' : 'Electronic components'" ratio="16 / 9" />
     </div>
 
     <CompanyHighlight :eyebrow="t('home.aboutEyebrow')" :statement="statement" :stats="stats" />

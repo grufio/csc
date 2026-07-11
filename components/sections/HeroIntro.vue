@@ -37,11 +37,23 @@ withDefaults(
 .hero--home {
   min-height: 100svh;
   display: flex;
-  align-items: flex-end;
-  padding-bottom: clamp(40px, 6vw, 96px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: var(--header-h);
+  padding-bottom: 0;
 }
 .hero__inner {
   width: 100%;
+}
+.hero--home .hero__inner {
+  max-width: min(92vw, 1180px);
+  margin: 0 auto;
+}
+.hero--home .hero__title {
+  max-width: none;
+  margin: 0 auto;
 }
 .hero__title {
   max-width: 20ch;
@@ -52,13 +64,21 @@ withDefaults(
 .hero__eyebrow {
   margin-bottom: clamp(16px, 2vw, 28px);
 }
+.hero--home .hero__meta {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .hero__meta {
   margin-top: clamp(28px, 4vw, 56px);
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
+}
+.hero--home .hero__intro {
+  margin: 0 auto;
 }
 .hero__intro {
   max-width: 42ch;

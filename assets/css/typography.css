@@ -1,15 +1,15 @@
-/* Self-hosted variable grotesk (free Space Grotesk) standing in for the
-   proprietary display face; tight negative tracking mirrors the design system. */
+/* Self-hosted variable grotesk (free Familjen Grotesk): a warm humanist
+   grotesk standing in for the proprietary display face. */
 @font-face {
-  font-family: 'Space Grotesk';
-  src: url('~/assets/fonts/SpaceGrotesk-Variable.woff2') format('woff2');
-  font-weight: 300 700;
+  font-family: 'Familjen Grotesk';
+  src: url('~/assets/fonts/FamiljenGrotesk-Variable.woff2') format('woff2');
+  font-weight: 400 700;
   font-display: swap;
   font-style: normal;
 }
 
 :root {
-  --font-body: 'Space Grotesk', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --font-body: 'Familjen Grotesk', 'Helvetica Neue', Arial, system-ui, sans-serif;
   --font-display: var(--font-body);
 
   /* Exact fluid scale from the reference design system */

@@ -38,6 +38,7 @@ export default defineNuxtConfig({
     pages: {
       'ueber-uns': { de: '/ueber-uns', en: '/about' },
       kontakt: { de: '/kontakt', en: '/contact' },
+      'leistungen/index': { de: '/leistungen', en: '/services' },
       'leistungen/[slug]': { de: '/leistungen/[slug]', en: '/services/[slug]' },
     },
   },

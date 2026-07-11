@@ -46,8 +46,8 @@ useSeoMeta({
       :intro="page.intro[loc]"
     />
 
-    <div v-if="page.image" class="section--tight container">
-      <ImageReveal :src="page.image.src" :alt="page.image.alt[loc]" ratio="16 / 9" />
+    <div class="section--tight container">
+      <ImageReveal :src="`/images/services/${meta.key}.jpg`" :alt="meta.title[loc]" ratio="16 / 9" />
     </div>
 
     <template v-for="(block, i) in page.blocks" :key="i">

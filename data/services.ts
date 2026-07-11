@@ -90,6 +90,18 @@ export const services: ServiceMeta[] = [
   },
 ]
 
+/** One brand colour per service area — echoes floema's category colour language.
+ *  All are mid-tone earthy hues that pair with dark ink text. */
+export const serviceColors: Record<string, string> = {
+  'elektronische-komponenten': '#e8674a', // coral
+  'displays-touchscreen': '#85a1c5', // vista blue
+  'stecker-kabelkonfektion': '#c6af88', // kraft
+  'obsolete-bauteile': '#bacfa3', // celadon
+  'china-fertigung': '#e0a458', // amber
+  'testen-pruefen-programmieren': '#9a8fb8', // lilac
+  'supply-management': '#7d9a86', // sage
+}
+
 export function servicePath(meta: ServiceMeta, locale: 'de' | 'en'): string {
   return locale === 'de'
     ? `/leistungen/${meta.slug.de}`

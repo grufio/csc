@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { services } from '~/data/services'
+import { services, serviceColors } from '~/data/services'
 
-defineProps<{ eyebrow?: string; title?: string }>()
+const props = withDefaults(
+  defineProps<{ eyebrow?: string; title?: string; images?: Record<string, string> }>(),
+  { eyebrow: '', title: '', images: () => ({}) },
+)
 
 const { locale } = useI18n()
 const loc = computed(() => locale.value as 'de' | 'en')
@@ -14,6 +17,8 @@ const items = computed(() =>
       index: String(s.order).padStart(2, '0'),
       title: s.title[loc.value],
       short: s.short[loc.value],
+      color: serviceColors[s.key],
+      image: props.images[s.key] || `/images/services/${s.key}.jpg`,
       to: loc.value === 'de' ? `/leistungen/${s.slug.de}` : `/en/services/${s.slug.en}`,
     })),
 )
@@ -21,7 +26,7 @@ const items = computed(() =>
 
 <template>
   <section class="services section container">
-    <header class="services__head">
+    <header v-if="eyebrow || title" class="services__head">
       <p v-if="eyebrow" class="eyebrow" data-reveal>{{ eyebrow }}</p>
       <h2 v-if="title" class="title-3" data-reveal data-reveal-delay="0.08">{{ title }}</h2>
     </header>
@@ -32,6 +37,8 @@ const items = computed(() =>
         :index="it.index"
         :title="it.title"
         :short="it.short"
+        :color="it.color"
+        :image="it.image"
         :to="it.to"
       />
     </div>
@@ -48,12 +55,16 @@ const items = computed(() =>
 .services__grid {
   display: grid;
   grid-template-columns: 1fr;
-  column-gap: var(--grid-gap);
+  gap: clamp(24px, 3vw, 44px) clamp(20px, 2vw, 32px);
 }
-@media (min-width: 744px) {
+@media (min-width: 640px) {
   .services__grid {
     grid-template-columns: repeat(2, 1fr);
-    column-gap: clamp(32px, 5vw, 96px);
+  }
+}
+@media (min-width: 1024px) {
+  .services__grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 </style>

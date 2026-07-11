@@ -5,6 +5,12 @@ const open = ref(false)
 
 const route = useRoute()
 watch(() => route.fullPath, () => { open.value = false })
+
+const pills = computed(() => [
+  { label: t('nav.services'), to: localePath('leistungen/index') },
+  { label: t('nav.about'), to: localePath('ueber-uns') },
+  { label: t('nav.contact'), to: localePath('kontakt') },
+])
 </script>
 
 <template>
@@ -15,7 +21,12 @@ watch(() => route.fullPath, () => { open.value = false })
         <span class="header__sub">Electronic AG</span>
       </NuxtLink>
 
-      <nav class="header__nav">
+      <nav class="header__nav" aria-label="Hauptnavigation">
+        <ul class="header__pills">
+          <li v-for="p in pills" :key="p.to">
+            <NuxtLink :to="p.to" class="pill">{{ p.label }}</NuxtLink>
+          </li>
+        </ul>
         <LangSwitch class="header__lang" />
         <button
           class="header__toggle"
@@ -76,10 +87,37 @@ watch(() => route.fullPath, () => { open.value = false })
 .header__nav {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 2vw, 32px);
+  gap: clamp(12px, 1.4vw, 20px);
+}
+.header__pills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: var(--caption);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  box-shadow: 0 1px 0 rgba(36, 31, 33, 0.04);
+  transition:
+    background 0.35s var(--ease),
+    color 0.35s var(--ease);
+}
+.pill:hover,
+.pill.router-link-active {
+  background: var(--color-ink);
+  color: var(--color-white);
 }
 .header__toggle {
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 10px;
 }
@@ -120,6 +158,15 @@ watch(() => route.fullPath, () => { open.value = false })
   transform: rotate(-45deg);
 }
 
+/* Mobile: hide pills, show hamburger */
+@media (max-width: 860px) {
+  .header__pills {
+    display: none;
+  }
+  .header__toggle {
+    display: inline-flex;
+  }
+}
 @media (max-width: 743px) {
   .header__lang {
     display: none;
