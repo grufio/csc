@@ -144,9 +144,16 @@ withDefaults(
   to { transform: translateY(8px); }
 }
 
-/* Hide the busy float layer on small screens */
+/* On small screens: keep four images as corner accents, drop the mid-side pair */
 @media (max-width: 860px) {
-  .hero__floats { display: none; }
+  .hero__float--3,
+  .hero__float--4 {
+    display: none;
+  }
+  .hero__float--1 { top: 11%; left: 4%; width: clamp(74px, 23vw, 104px); aspect-ratio: 4 / 5; }
+  .hero__float--2 { top: 8%; right: 4%; width: clamp(68px, 20vw, 92px); aspect-ratio: 1 / 1; }
+  .hero__float--5 { bottom: 9%; left: 5%; width: clamp(72px, 22vw, 96px); aspect-ratio: 3 / 4; }
+  .hero__float--6 { bottom: 11%; right: 5%; width: clamp(80px, 24vw, 108px); aspect-ratio: 4 / 3; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero__float { animation: none; opacity: 1; }
