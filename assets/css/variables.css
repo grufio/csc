@@ -1,30 +1,48 @@
 :root {
-  /* ---- Brand palette ---- */
-  --color-black: #0a0a0b;
-  --color-ink: #141416;
-  --color-white: #ffffff;
-  --color-paper: #f5f3ee; /* off-white background */
-  --color-paper-2: #ebe8e0;
-  --color-mute: #6b6a66;
-  --color-line: rgba(20, 20, 22, 0.14);
-  --color-accent: #d8451f; /* CSC signal red-orange */
-  --color-accent-2: #1f4fd8;
+  /* ---- Palette (from floema design system) ---- */
+  --color-black: #000;
+  --color-white: #fff;
+  --color-ink: #241f21; /* stoneBrown800 — primary text */
+  --color-green: #042d2b; /* forestGreen600 */
+  --color-red: #ff004d; /* accent */
+  --color-creme: #f4efd7;
+  --color-fluor: #e9e778; /* flourYellow — footer / reveals */
 
-  --bg: var(--color-paper);
+  --color-ivory-25: #f9f8f6;
+  --color-ivory-50: #f2efea; /* page background */
+  --color-ivory-100: #ebe7df;
+  --color-ivory-200: #e4ded3;
+  --color-ivory-300: #d2cdc4;
+  --color-ivory-400: #beb9b0;
+
+  --color-stone-300: #c3bcbb;
+  --color-stone-500: #988f8b;
+  --color-stone-600: #7a716d; /* muted text */
+  --color-stone-700: #524945;
+
+  --bg: var(--color-ivory-50);
   --fg: var(--color-ink);
+  --color-mute: var(--color-stone-600);
+  --color-accent: var(--color-red);
+  --color-line: rgba(36, 31, 33, 0.14);
 
-  /* ---- 24-column fluid grid ---- */
+  /* ---- 24-column fluid grid (floema values) ---- */
   --grid-columns: 24;
-  --grid-gutter: clamp(8px, 6.5px + 100vw * 0.004, 22px);
-  --grid-margin: clamp(16px, 8px + 100vw * 0.02, 120px);
+  --grid-margin: clamp(16px, 10.15px + 100vw * 0.015, 36px);
+  --grid-gap: clamp(14px, 9.71px + 100vw * 0.011, 28px);
 
   /* ---- Motion ---- */
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --dur: 0.9s;
 
   /* ---- Layout ---- */
-  --header-h: clamp(64px, 56px + 100vw * 0.01, 92px);
+  --header-h: clamp(58px, 52px + 100vw * 0.008, 78px);
 }
 
-/* Breakpoints reference (used in media queries throughout):
-   410 / 743 / 1023 / 1290 / 1440 / 1700 / 2000 */
+@media (min-width: 2000px) {
+  :root {
+    --grid-margin: 1.8vw;
+    --grid-gap: 1.4vw;
+  }
+}

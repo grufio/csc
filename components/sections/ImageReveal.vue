@@ -76,7 +76,7 @@ onBeforeUnmount(() => ctx?.revert())
 .reveal__cover {
   position: absolute;
   inset: 0;
-  background: var(--color-ink);
+  background: var(--color-fluor);
   transform-origin: bottom;
   z-index: 2;
 }

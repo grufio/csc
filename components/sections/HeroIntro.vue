@@ -13,25 +13,41 @@ withDefaults(
 
 <template>
   <section class="hero container" :class="`hero--${variant}`">
-    <p v-if="eyebrow" class="hero__eyebrow eyebrow" data-reveal>{{ eyebrow }}</p>
-    <SplitText :lines="titleLines" tag="h1" :class="variant === 'home' ? 'title-1' : 'title-2'" />
-    <div v-if="intro || tagline" class="hero__meta">
-      <p v-if="intro" class="hero__intro body-lg" data-reveal data-reveal-delay="0.15">{{ intro }}</p>
-      <p v-if="tagline" class="hero__tag caption" data-reveal data-reveal-delay="0.25">{{ tagline }}</p>
+    <div class="hero__inner">
+      <p v-if="eyebrow" class="hero__eyebrow eyebrow" data-reveal>{{ eyebrow }}</p>
+      <SplitText
+        :lines="titleLines"
+        tag="h1"
+        :class="variant === 'home' ? 'title-2' : 'title-2'"
+        class="hero__title"
+      />
+      <div v-if="intro || tagline" class="hero__meta">
+        <p v-if="intro" class="hero__intro body-lg" data-reveal data-reveal-delay="0.15">{{ intro }}</p>
+        <p v-if="tagline" class="hero__tag caption" data-reveal data-reveal-delay="0.25">{{ tagline }}</p>
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped>
 .hero {
-  padding-top: calc(var(--header-h) + clamp(48px, 8vw, 140px));
-  padding-bottom: clamp(40px, 6vw, 100px);
+  padding-top: calc(var(--header-h) + clamp(40px, 8vw, 120px));
+  padding-bottom: clamp(32px, 5vw, 72px);
 }
 .hero--home {
-  min-height: clamp(70vh, 60vh, 100vh);
+  min-height: 100svh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: clamp(40px, 6vw, 96px);
+}
+.hero__inner {
+  width: 100%;
+}
+.hero__title {
+  max-width: 20ch;
+}
+.hero--page .hero__title {
+  max-width: 16ch;
 }
 .hero__eyebrow {
   margin-bottom: clamp(16px, 2vw, 28px);
@@ -45,10 +61,11 @@ withDefaults(
   gap: 24px;
 }
 .hero__intro {
-  max-width: 34ch;
+  max-width: 42ch;
   color: var(--color-mute);
 }
 .hero__tag {
-  color: var(--color-accent);
+  color: var(--color-red);
+  font-weight: 600;
 }
 </style>

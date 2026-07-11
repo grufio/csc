@@ -1,5 +1,5 @@
-/* Self-hosted variable font. Space Grotesk woff2 placed in assets/fonts/.
-   Falls back to system grotesk stack if the file is absent. */
+/* Self-hosted variable grotesk (free Space Grotesk) standing in for the
+   proprietary display face; tight negative tracking mirrors the design system. */
 @font-face {
   font-family: 'Space Grotesk';
   src: url('~/assets/fonts/SpaceGrotesk-Variable.woff2') format('woff2');
@@ -12,74 +12,83 @@
   --font-body: 'Space Grotesk', 'Helvetica Neue', Arial, system-ui, sans-serif;
   --font-display: var(--font-body);
 
-  /* Fluid title scale: clamp(min, base + 100vw * factor, max) */
-  --title-1: clamp(44px, 26px + 100vw * 0.066, 200px);
-  --title-2: clamp(38px, 24px + 100vw * 0.05, 132px);
-  --title-3: clamp(30px, 22px + 100vw * 0.035, 88px);
-  --title-4: clamp(26px, 20px + 100vw * 0.022, 60px);
-  --title-5: clamp(22px, 18px + 100vw * 0.014, 40px);
-  --title-6: clamp(19px, 16px + 100vw * 0.009, 28px);
-  --body-lg: clamp(18px, 16px + 100vw * 0.005, 26px);
-  --body: clamp(15px, 14px + 100vw * 0.0032, 20px);
-  --caption: clamp(12px, 11px + 100vw * 0.0026, 15px);
+  /* Exact fluid scale from the reference design system */
+  --title-1: clamp(80px, 67.91px + 100vw * 0.031, 120px);
+  --title-2: clamp(32px, 22.64px + 100vw * 0.024, 64px);
+  --title-3: clamp(30px, 22.2px + 100vw * 0.02, 56px);
+  --title-4: clamp(28px, 22.15px + 100vw * 0.015, 48px);
+  --title-5: clamp(28px, 24.49px + 100vw * 0.009, 40px);
+  --title-6: clamp(22px, 18.88px + 100vw * 0.008, 32px);
+  --title-7: clamp(20px, 18.83px + 100vw * 0.003, 24px);
+  --body-lg: clamp(16px, 15.22px + 100vw * 0.002, 18px);
+  --body: clamp(14px, 13.22px + 100vw * 0.002, 16px);
+  --caption: 11px;
 }
 
 .title-1 {
   font-size: var(--title-1);
-  line-height: 0.92;
-  letter-spacing: -0.03em;
+  line-height: 1;
+  letter-spacing: -0.04em;
   font-weight: 500;
 }
 .title-2 {
   font-size: var(--title-2);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
   font-weight: 500;
 }
 .title-3 {
   font-size: var(--title-3);
-  line-height: 1;
-  letter-spacing: -0.025em;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
   font-weight: 500;
 }
 .title-4 {
   font-size: var(--title-4);
   line-height: 1.05;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   font-weight: 500;
 }
 .title-5 {
   font-size: var(--title-5);
   line-height: 1.1;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.04em;
   font-weight: 500;
 }
 .title-6 {
   font-size: var(--title-6);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+.title-7 {
+  font-size: var(--title-7);
+  line-height: 1.25;
+  letter-spacing: -0.04em;
   font-weight: 500;
 }
 .body-lg {
   font-size: var(--body-lg);
-  line-height: 1.4;
-  letter-spacing: -0.01em;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  font-weight: 500;
 }
 .body {
   font-size: var(--body);
-  line-height: 1.55;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
 }
 .caption {
   font-size: var(--caption);
   line-height: 1.4;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  font-weight: 500;
 }
 
 .eyebrow {
   font-size: var(--caption);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--color-mute);
-  font-weight: 500;
+  font-weight: 600;
 }

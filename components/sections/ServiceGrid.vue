@@ -48,7 +48,7 @@ const items = computed(() =>
 .services__grid {
   display: grid;
   grid-template-columns: 1fr;
-  column-gap: var(--grid-gutter);
+  column-gap: var(--grid-gap);
 }
 @media (min-width: 744px) {
   .services__grid {

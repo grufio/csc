@@ -8,26 +8,28 @@ watch(() => route.fullPath, () => { open.value = false })
 </script>
 
 <template>
-  <header class="header container">
-    <NuxtLink :to="localePath('index')" class="header__brand" aria-label="CSC Electronic AG">
-      <span class="header__logo">CSC</span>
-      <span class="header__sub">Electronic AG</span>
-    </NuxtLink>
+  <header class="header" :class="{ 'is-open': open }">
+    <div class="header__bar container">
+      <NuxtLink :to="localePath('index')" class="header__brand" aria-label="CSC Electronic AG">
+        <span class="header__logo">CSC</span>
+        <span class="header__sub">Electronic AG</span>
+      </NuxtLink>
 
-    <nav class="header__nav">
-      <LangSwitch class="header__lang" />
-      <button
-        class="header__toggle"
-        :aria-expanded="open"
-        aria-controls="site-drawer"
-        @click="open = !open"
-      >
-        <span class="header__toggle-label">{{ open ? t('nav.close') : t('nav.menu') }}</span>
-        <span class="header__toggle-icon" :class="{ 'is-open': open }" aria-hidden="true">
-          <i /><i />
-        </span>
-      </button>
-    </nav>
+      <nav class="header__nav">
+        <LangSwitch class="header__lang" />
+        <button
+          class="header__toggle"
+          :aria-expanded="open"
+          aria-controls="site-drawer"
+          @click="open = !open"
+        >
+          <span class="header__toggle-label">{{ open ? t('nav.close') : t('nav.menu') }}</span>
+          <span class="header__toggle-icon" :class="{ 'is-open': open }" aria-hidden="true">
+            <i /><i />
+          </span>
+        </button>
+      </nav>
+    </div>
 
     <ClientOnly>
       <ModalDrawer id="site-drawer" :open="open" @close="open = false" />
@@ -42,12 +44,19 @@ watch(() => route.fullPath, () => { open.value = false })
   left: 0;
   right: 0;
   z-index: 160;
+}
+.header__bar {
+  position: relative;
+  z-index: 2;
   height: var(--header-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  mix-blend-mode: difference;
-  color: var(--color-white);
+  color: var(--color-ink);
+  transition: color 0.4s var(--ease);
+}
+.header.is-open .header__bar {
+  color: var(--color-ivory-50);
 }
 .header__brand {
   display: flex;
@@ -56,13 +65,13 @@ watch(() => route.fullPath, () => { open.value = false })
 }
 .header__logo {
   font-weight: 700;
-  font-size: clamp(20px, 16px + 100vw * 0.006, 30px);
-  letter-spacing: -0.04em;
+  font-size: clamp(19px, 15px + 100vw * 0.006, 28px);
+  letter-spacing: -0.05em;
 }
 .header__sub {
   font-size: var(--caption);
-  letter-spacing: 0.06em;
-  opacity: 0.8;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
 }
 .header__nav {
   display: flex;
@@ -76,8 +85,9 @@ watch(() => route.fullPath, () => { open.value = false })
 }
 .header__toggle-label {
   font-size: var(--caption);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  font-weight: 600;
 }
 .header__toggle-icon {
   position: relative;
@@ -90,7 +100,10 @@ watch(() => route.fullPath, () => { open.value = false })
   width: 100%;
   height: 1.5px;
   background: currentColor;
-  transition: transform 0.35s var(--ease), opacity 0.2s;
+  transition:
+    transform 0.35s var(--ease),
+    top 0.35s var(--ease),
+    bottom 0.35s var(--ease);
 }
 .header__toggle-icon i:first-child {
   top: 0;

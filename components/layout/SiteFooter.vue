@@ -18,14 +18,21 @@ const serviceLinks = computed(() =>
 
 <template>
   <footer class="footer">
-    <div class="footer__inner grid">
+    <div class="footer__top container">
+      <p class="footer__slogan title-3">{{ site.slogan[loc] }}</p>
+      <NuxtLink :to="localePath('kontakt')" class="footer__cta title-6">
+        {{ t('cta.getInTouch') }} <span aria-hidden="true">↗</span>
+      </NuxtLink>
+    </div>
+
+    <div class="footer__grid grid">
       <div class="footer__brand">
-        <p class="title-4">{{ site.legalName }}</p>
+        <p class="footer__mark">CSC</p>
         <p class="footer__tag caption">{{ site.tagline }}</p>
       </div>
 
       <nav class="footer__col">
-        <p class="eyebrow">{{ t('meta.servicesTitle') }}</p>
+        <p class="footer__label caption">{{ t('meta.servicesTitle') }}</p>
         <ul>
           <li v-for="s in serviceLinks" :key="s.to">
             <NuxtLink :to="s.to">{{ s.title }}</NuxtLink>
@@ -34,101 +41,132 @@ const serviceLinks = computed(() =>
       </nav>
 
       <div class="footer__col">
-        <p class="eyebrow">{{ t('contact.title') }}</p>
+        <p class="footer__label caption">{{ t('contact.address') }}</p>
         <address class="footer__addr">
+          {{ site.legalName }}<br >
           {{ site.address.street }}<br >
           {{ site.address.zip }} {{ site.address.city }}<br >
           {{ site.address.country[loc] }}
         </address>
-        <ul class="footer__links">
+      </div>
+
+      <div class="footer__col">
+        <p class="footer__label caption">{{ t('contact.title') }}</p>
+        <ul>
           <li><a :href="`tel:${site.phone.replace(/\s/g, '')}`">{{ site.phone }}</a></li>
           <li><a :href="`mailto:${site.emails.general}`">{{ site.emails.general }}</a></li>
           <li><a :href="`mailto:${site.emails.sales}`">{{ site.emails.sales }}</a></li>
+          <li><a :href="`mailto:${site.emails.accounting}`">{{ site.emails.accounting }}</a></li>
         </ul>
-      </div>
-
-      <div class="footer__col footer__meta">
-        <NuxtLink :to="localePath('kontakt')" class="footer__cta">
-          {{ t('cta.getInTouch') }}
-        </NuxtLink>
-        <LangSwitch />
       </div>
     </div>
 
-    <div class="footer__base grid">
+    <div class="footer__base container">
       <p class="caption">© {{ new Date().getFullYear() }} {{ site.legalName }}</p>
-      <p class="caption">{{ t('contact.legal') }} · {{ site.address.city }}</p>
+      <div class="footer__base-right">
+        <span class="caption">{{ t('contact.legal') }}</span>
+        <LangSwitch />
+      </div>
     </div>
   </footer>
 </template>
 
 <style scoped>
 .footer {
-  background: var(--color-ink);
-  color: var(--color-white);
-  padding-block: clamp(48px, 6vw, 100px) 28px;
+  background: var(--color-fluor);
+  color: var(--color-ink);
+  padding-block: clamp(48px, 40px + 100vw * 0.027, 98px) 24px;
 }
-.footer__inner {
+.footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: clamp(40px, 27px + 100vw * 0.031, 80px);
+  border-bottom: 1px solid rgba(36, 31, 33, 0.2);
+}
+.footer__slogan {
+  max-width: 16ch;
+}
+.footer__cta {
+  white-space: nowrap;
+  transition: opacity 0.3s var(--ease);
+}
+.footer__cta:hover {
+  opacity: 0.6;
+}
+.footer__grid {
   row-gap: clamp(32px, 4vw, 56px);
+  padding-block: clamp(38px, 25px + 100vw * 0.032, 80px);
 }
 .footer__brand {
   grid-column: 1 / -1;
 }
+.footer__col {
+  grid-column: 1 / -1;
+}
 @media (min-width: 744px) {
   .footer__brand {
-    grid-column: span 12;
+    grid-column: span 6;
   }
   .footer__col {
-    grid-column: span 4;
+    grid-column: span 6;
   }
 }
+@media (min-width: 1024px) {
+  .footer__brand {
+    grid-column: span 6;
+  }
+  .footer__col {
+    grid-column: span 6;
+  }
+}
+.footer__mark {
+  font-size: clamp(48px, 30px + 100vw * 0.06, 120px);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
 .footer__tag {
-  margin-top: 10px;
-  color: var(--color-accent);
+  margin-top: 8px;
+  font-weight: 600;
+}
+.footer__label {
+  font-weight: 600;
+  opacity: 0.55;
+  margin-bottom: 16px;
 }
 .footer__col ul {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 16px;
 }
 .footer__col a,
 .footer__addr {
-  color: rgba(255, 255, 255, 0.72);
   font-size: var(--body);
   line-height: 1.6;
-  transition: color 0.3s var(--ease);
+  letter-spacing: -0.02em;
+  transition: opacity 0.3s var(--ease);
 }
 .footer__col a:hover {
-  color: var(--color-white);
+  opacity: 0.6;
 }
 .footer__addr {
-  margin-top: 16px;
   font-style: normal;
-}
-.footer__links {
-  margin-top: 14px;
-}
-.footer__cta {
-  display: inline-block;
-  font-size: var(--title-5);
-  letter-spacing: -0.02em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding-bottom: 4px;
-  margin-bottom: 24px;
-  transition: color 0.3s var(--ease);
-}
-.footer__cta:hover {
-  color: var(--color-accent);
-}
-.footer__base {
-  margin-top: clamp(40px, 5vw, 72px);
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 .footer__base {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  color: rgba(255, 255, 255, 0.5);
+  gap: 16px;
+  margin-top: clamp(32px, 5vw, 56px);
+  padding-top: 20px;
+  border-top: 1px solid rgba(36, 31, 33, 0.2);
+}
+.footer__base-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 </style>
