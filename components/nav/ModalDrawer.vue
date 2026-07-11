@@ -135,6 +135,7 @@ onBeforeUnmount(() => {
 }
 .drawer__link span {
   display: inline-block;
+  transform: translateY(0);
   transition: transform 0.45s var(--ease);
 }
 .drawer__link:hover {
@@ -161,33 +162,26 @@ onBeforeUnmount(() => {
   color: var(--color-ivory-50);
 }
 
-/* staggered link entrance */
-.drawer__link span {
+/* staggered link entrance: hidden only at enter-from, visible at rest */
+.drawer-enter-from .drawer__link span {
   transform: translateY(110%);
 }
 .drawer-enter-active .drawer__link span {
   transition: transform 0.7s var(--ease);
 }
-.drawer-enter-from .drawer__link span,
-.drawer-leave-to .drawer__link span {
-  transform: translateY(110%);
-}
-.drawer-enter-to .drawer__link span {
-  transform: translateY(0);
-}
-.drawer__item:nth-child(1) .drawer__link span { transition-delay: 0.05s; }
-.drawer__item:nth-child(2) .drawer__link span { transition-delay: 0.1s; }
-.drawer__item:nth-child(3) .drawer__link span { transition-delay: 0.15s; }
-.drawer__item:nth-child(4) .drawer__link span { transition-delay: 0.2s; }
-.drawer__item:nth-child(5) .drawer__link span { transition-delay: 0.25s; }
-.drawer__item:nth-child(6) .drawer__link span { transition-delay: 0.3s; }
-.drawer__item:nth-child(7) .drawer__link span { transition-delay: 0.35s; }
-.drawer__item:nth-child(8) .drawer__link span { transition-delay: 0.4s; }
-.drawer__item:nth-child(9) .drawer__link span { transition-delay: 0.45s; }
+.drawer-enter-active .drawer__item:nth-child(1) .drawer__link span { transition-delay: 0.05s; }
+.drawer-enter-active .drawer__item:nth-child(2) .drawer__link span { transition-delay: 0.1s; }
+.drawer-enter-active .drawer__item:nth-child(3) .drawer__link span { transition-delay: 0.15s; }
+.drawer-enter-active .drawer__item:nth-child(4) .drawer__link span { transition-delay: 0.2s; }
+.drawer-enter-active .drawer__item:nth-child(5) .drawer__link span { transition-delay: 0.25s; }
+.drawer-enter-active .drawer__item:nth-child(6) .drawer__link span { transition-delay: 0.3s; }
+.drawer-enter-active .drawer__item:nth-child(7) .drawer__link span { transition-delay: 0.35s; }
+.drawer-enter-active .drawer__item:nth-child(8) .drawer__link span { transition-delay: 0.4s; }
+.drawer-enter-active .drawer__item:nth-child(9) .drawer__link span { transition-delay: 0.45s; }
 
 .drawer-enter-active,
 .drawer-leave-active {
-  transition: opacity 0.5s var(--ease);
+  transition: opacity 0.45s var(--ease);
 }
 .drawer-enter-from,
 .drawer-leave-to {
