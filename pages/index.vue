@@ -30,6 +30,15 @@ const processSteps = computed(() =>
   chinaProcess.map((s) => ({ no: s.no, title: s.title[loc.value], text: s.text[loc.value] })),
 )
 
+const floating = [
+  '/images/services/elektronische-komponenten.jpg',
+  '/images/services/stecker-kabelkonfektion.jpg',
+  '/images/services/displays-touchscreen.jpg',
+  '/images/services/china-fertigung.jpg',
+  '/images/services/obsolete-bauteile.jpg',
+  '/images/services/supply-management.jpg',
+]
+
 useSeoMeta({
   title: () => (loc.value === 'de' ? 'Start' : 'Home'),
 })
@@ -43,6 +52,7 @@ useSeoMeta({
       :title-lines="titleLines"
       :intro="site.slogan[loc]"
       :tagline="site.tagline"
+      :floating="floating"
     />
 
     <div class="section--tight container">
