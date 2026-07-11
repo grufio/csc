@@ -35,6 +35,7 @@ export default defineNuxtConfig({
       { code: 'en', language: 'en', name: 'English', file: 'en.json' },
     ],
     customRoutes: 'config',
+    bundle: { optimizeTranslationDirective: false },
     pages: {
       'ueber-uns': { de: '/ueber-uns', en: '/about' },
       kontakt: { de: '/kontakt', en: '/contact' },
